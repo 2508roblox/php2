@@ -32,7 +32,7 @@ require_once __DIR__ . '/inc/footer.php';
 						<div class="extra-cell">						
 							<ul class="header-right">
 								<li class="nav-item login-link">
-									<a class="nav-link" href="shop-my-account.html">
+									<a class="nav-link" href="<?php url('auth')?>">
 										LOGIN / REGISTER
 									</a>
 								</li>

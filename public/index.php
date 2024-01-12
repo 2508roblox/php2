@@ -9,4 +9,5 @@ use \App\Libs\Database as Database;
 use \App\Libs\Controller as Controller;
 include_once __DIR__ . "/../app/Configs/config.php";
 include "../app/Helpers/redirect.php";
+include "../app/Helpers/url.php";
 $core = new Core();
