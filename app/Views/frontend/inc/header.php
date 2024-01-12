@@ -1,146 +1,43 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Layout HTML</title>
-    <style>
-    body {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="author" content="HugeBinary">
+	<meta name="robots" content="">
+	<meta name="description" content="MoonCart Shop & eCommerce HTML Template">
+	<meta property="og:title" content="MoonCart Shop & eCommerce HTML Template">
+	<meta property="og:description" content="MoonCart Shop & eCommerce HTML Template">
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>MoonCart Shop & eCommerce HTML Template</title>
+	
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>icons/fontawesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>icons/themify/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>icons/flaticon/flaticon_mooncart.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/nouislider/nouislider.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lightgallery.css" >
+    <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lg-zoom.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>css/style.css">
+	
+	<!-- GOOGLE FONTS-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    .flex-container {
-        display: flex;
-        max-width: 1000px;
-        overflow-x: scroll;
-    }
-
-    .flex-container1 {
-        display: grid;
-        max-width: 1000px;
-        gap: 50px;
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-    .flex-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .flex-container {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
-
-    .flex-container>div {
-        background-color: #f1f1f1;
-        min-width: 200px;
-        margin: 10px;
-        text-align: center;
-    }
-
-    .flex-container>div>img {
-        height: 400px;
-        width: 100%;
-    }
-
-    .flex-container1>div {
-        background-color: #f1f1f1;
-        min-width: 50%;
-        text-align: center;
-
-    }
-
-    .flex-container1>div:nth-child(2) {
-        background-color: white;
-        min-width: 50%;
-        text-align: center;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
-        grid-template-rows: repeat(2, 1fr);
-
-    }
-
-    .flex-container1>div:nth-child(2)>div {
-        background-color: #f1f1f1;
-        height: 400px;
-
-    }
-    </style>
-    <style>
-    .flex-container2 {
-        color: #f1f1f1;
-        font-family: sans-serif;
-        text-align: center;
-        display: grid;
-        max-width: 1000px;
-        gap: 50px;
-
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 50px;
-    }
-
-    .flex-container2>div {
-        background-color: white;
-        min-width: 50%;
-        text-align: center;
-
-    }
-
-    .container2_div1 {
-        display: grid;
-        grid-template-rows: 2fr 4fr;
-        text-align: center;
-        gap: 50px;
-        background-color: white;
-
-
-    }
-
-    .container2_div1>div:nth-child(1) {
-        background-color: #f1f1f1;
-
-    }
-
-    .container2_div1>div:nth-child(2) {
-        gap: 50px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .container2_div1>div:nth-child(2)>div {
-        height: 400px;
-        background-color: #f1f1f1;
-    }
-
-    .container2_div2 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        text-align: center;
-        gap: 50px;
-        background-color: white;
-
-    }
-
-    .container2_div2>div>div {
-        background-color: #f1f1f1;
-    }
-
-    .container2_div2>div:nth-child(1) {
-        display: grid;
-        gap: 50px;
-        grid-template-rows: 3fr 2fr;
-    }
-
-    .container2_div2>div:nth-child(2) {
-        display: grid;
-        grid-template-rows: 2fr 3fr;
-        gap: 50px;
-    }
-    </style>
-</head>
+</head>	
