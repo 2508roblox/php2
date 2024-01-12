@@ -1,2 +1,2 @@
 
-![Mô tả ảnh](https://imgur.com/TZrURAd)
+![Mô tả ảnh](https://i.imgur.com/TZrURAd.jpeg)
