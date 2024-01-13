@@ -6,10 +6,9 @@ class ProductsController extends Controller
 {
     public function get()
     {
-       
-            # code...
-            $this->view('frontend/products');
-        
+
+        # code...
+        $this->view('frontend/products');
     }
     public function detail($product_id)
     {
