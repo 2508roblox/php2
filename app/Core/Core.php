@@ -10,7 +10,7 @@ class Core
     // default controller, method, params
     public function __construct()
     {
-        $exit_controller = array('abouts', 'auth' , 'admin', 'blog', 'cart','category', 'checkout', 'contact', 'home', 'posts', 'products', 'user', 'wishlist');
+        $exit_controller = array('abouts', 'wishlist', 'shop','about', 'auth' , 'admin', 'blog', 'cart','category', 'checkout', 'contact', 'home', 'posts', 'products', 'user');
 
         $url = self::explodeUrl();
       

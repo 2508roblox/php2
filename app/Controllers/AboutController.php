@@ -2,13 +2,13 @@
 
 use App\Libs\Controller;
 
-class WishlistController extends Controller
+class AboutController extends Controller
 {
 
     public function get()
     {
         
-return $this->view('frontend/wishlist') ;
+return $this->view('frontend/about') ;
     }
    
 }

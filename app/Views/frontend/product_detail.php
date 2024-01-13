@@ -4,7 +4,7 @@ require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
 ?>
 	<!-- Header End -->
-	
+	 
 	<div class="page-content">
 		
 		<div class="d-sm-flex justify-content-between container-fluid py-3">
@@ -29,7 +29,7 @@ require_once __DIR__ . '/inc/footer.php';
 												<a class="mfp-link lg-item" href="images/products/product-detail2/product1.png" data-src="images/products/product-detail2/product1.png">
 													<i class="feather icon-maximize dz-maximize top-left"></i>
 												</a>
-												<img src="images/products/product-detail2/product1.png" alt="image">
+												<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/product-detail2/product1.png" alt="image">
 											</div>
 										</div>
 										<div class="swiper-slide">
@@ -37,7 +37,7 @@ require_once __DIR__ . '/inc/footer.php';
 												<a class="mfp-link lg-item" href="images/products/product-detail2/product2.png" data-src="images/products/product-detail2/product2.png">
 													<i class="feather icon-maximize dz-maximize top-left"></i>
 												</a>
-												<img src="images/products/product-detail2/product2.png" alt="image">
+												<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/product-detail2/product2.png" alt="image">
 											</div>
 										</div>
 										<div class="swiper-slide">
@@ -45,7 +45,7 @@ require_once __DIR__ . '/inc/footer.php';
 												<a class="mfp-link lg-item" href="images/products/product-detail2/product3.png" data-src="images/products/product-detail2/product3.png">
 													<i class="feather icon-maximize dz-maximize top-left"></i>
 												</a>
-												<img src="images/products/product-detail2/product3.png" alt="image">
+												<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/product-detail2/product3.png" alt="image">
 											</div>
 										</div>
 									</div>
@@ -53,13 +53,13 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="swiper product-gallery-swiper thumb-swiper-lg">
 									<div class="swiper-wrapper">
 										<div class="swiper-slide">
-											<img src="images/products/product-detail2/thumb-img/1.png" alt="image">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/product-detail2/thumb-img/1.png" alt="image">
 										</div>
 										<div class="swiper-slide">
-											<img src="images/products/product-detail2/thumb-img/2.png" alt="image">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/product-detail2/thumb-img/2.png" alt="image">
 										</div>
 										<div class="swiper-slide">
-											<img src="images/products/product-detail2/thumb-img/3.png" alt="image">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/product-detail2/thumb-img/3.png" alt="image">
 										</div>
 									</div>
 								</div>
@@ -238,7 +238,7 @@ require_once __DIR__ . '/inc/footer.php';
 									</div>
 									<div class="icon-bx-wraper style-4 m-b30">
 										<div class="icon-bx">
-											<img src="images/shop/shop-cart/icon-box/pic2.png" alt="/">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/shop-cart/icon-box/pic2.png" alt="/">
 										</div>
 										<div class="icon-content">
 											<h6 class="dz-title">Enjoy The Product</h6>
@@ -313,17 +313,17 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="row g-lg-4 g-3">
 									<div class="col-xl-4 col-md-4 col-sm-4 col-6">
 										<div class="related-img dz-media">
-											<img src="images/feature/product-feature/1.png" alt="/">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/feature/product-feature/1.png" alt="/">
 										</div>
 									</div>
 									<div class="col-xl-4 col-md-4 col-sm-4 col-6">
 										<div class="related-img dz-media">
-											<img src="images/feature/product-feature/2.png" alt="/">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/feature/product-feature/2.png" alt="/">
 										</div>
 									</div>
 									<div class="col-xl-4 col-md-4 col-sm-4">
 										<div class="related-img dz-media">
-											<img src="images/feature/product-feature/3.png" alt="/">
+											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/feature/product-feature/3.png" alt="/">
 										</div>
 									</div>
 								</div>
@@ -338,7 +338,7 @@ require_once __DIR__ . '/inc/footer.php';
 												<li class="comment even thread-even depth-1 comment" id="comment-2">
 													<div class="comment-body">
 													  <div class="comment-author vcard">
-															<img src="images/profile4.jpg" alt="/" class="avatar">
+															<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/profile4.jpg" alt="/" class="avatar">
 															<cite class="fn">Michel Poe</cite> 
 													  </div>
 												  <div class="comment-content dz-page-text">
@@ -352,7 +352,7 @@ require_once __DIR__ . '/inc/footer.php';
 												  <li class="comment byuser comment-author-w3itexpertsuser bypostauthor odd alt depth-2 comment" id="comment-3">
 													 <div class="comment-body" id="div-comment-3">
 														<div class="comment-author vcard">
-														   <img src="images/profile3.jpg" alt="/" class="avatar">
+														   <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/profile3.jpg" alt="/" class="avatar">
 														   <cite class="fn">Celesto Anderson</cite>
 														</div>
 														<div class="comment-content dz-page-text">
@@ -368,7 +368,7 @@ require_once __DIR__ . '/inc/footer.php';
 											<li class="comment even thread-odd thread-alt depth-1 comment" id="comment-4">
 												<div class="comment-body" id="div-comment-4">
 													<div class="comment-author vcard">
-														<img src="images/profile2.jpg" alt="/" class="avatar">
+														<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/profile2.jpg" alt="/" class="avatar">
 														<cite class="fn">Monsur Rahman Lito</cite>
 													</div>
 													<div class="comment-content dz-page-text">
@@ -422,7 +422,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="swiper-slide">
 								<div class="shop-card">
 									<div class="dz-media">
-										<img src="images/shop/product/5.png" alt="image">
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/5.png" alt="image">
 										<div class="shop-meta">
 											<a href="javascript:void(0);" class="btn btn-secondary btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
 												<i class="fa-solid fa-eye d-md-none d-block"></i>
@@ -489,7 +489,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="swiper-slide">
 								<div class="shop-card">
 									<div class="dz-media">
-										<img src="images/shop/product/6.png" alt="image">										
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/6.png" alt="image">										
 										<div class="shop-meta">
 											<a href="javascript:void(0);" class="btn btn-secondary btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
 												<i class="fa-solid fa-eye d-md-none d-block"></i>
@@ -556,7 +556,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="swiper-slide">
 								<div class="shop-card">
 									<div class="dz-media">
-										<img src="images/shop/product/7.png" alt="image">	
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/7.png" alt="image">	
 										<div class="shop-meta">
 											<a href="javascript:void(0);" class="btn btn-secondary btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
 												<i class="fa-solid fa-eye d-md-none d-block"></i>
@@ -626,7 +626,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="swiper-slide">
 								<div class="shop-card">
 									<div class="dz-media">
-										<img src="images/shop/product/8.png" alt="image">
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/8.png" alt="image">
 										<div class="shop-meta">
 											<a href="javascript:void(0);" class="btn btn-secondary btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
 												<i class="fa-solid fa-eye d-md-none d-block"></i>
@@ -697,7 +697,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="swiper-slide">
 								<div class="shop-card">
 									<div class="dz-media">
-										<img src="images/shop/product/8.png" alt="image">
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/8.png" alt="image">
 										<div class="shop-meta">
 											<a href="javascript:void(0);" class="btn btn-secondary btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
 												<i class="fa-solid fa-eye d-md-none d-block"></i>
@@ -786,7 +786,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-lg-3 col-sm-6">
 						<div class="icon-bx-wraper style-2 bg-light">
 							<div class="icon-bx">
-								<img src="images/svg/icon-bx/password-check.svg" alt="/">
+								<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/svg/icon-bx/password-check.svg" alt="/">
 							</div>
 							<div class="icon-content">
 								<h5 class="dz-title m-b10">Filter & Discover</h5>
@@ -798,7 +798,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-lg-3 col-sm-6">
 						<div class="icon-bx-wraper style-2">
 							<div class="icon-bx">
-								<img src="images/svg/icon-bx/cart.svg" alt="/">
+								<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/svg/icon-bx/cart.svg" alt="/">
 							</div>
 							<div class="icon-content">
 								<h5 class="dz-title m-b10">Add to cart</h5>
@@ -810,7 +810,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-lg-3 col-sm-6">
 						<div class="icon-bx-wraper style-2 bg-light">
 							<div class="icon-bx">
-								<img src="images/svg/icon-bx/discovery.svg" alt="/">
+								<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/svg/icon-bx/discovery.svg" alt="/">
 							</div>
 							<div class="icon-content">
 								<h5 class="dz-title m-b10">Fast Shipping</h5>
@@ -822,7 +822,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-lg-3 col-sm-6">
 						<div class="icon-bx-wraper style-2">
 							<div class="icon-bx">
-								<img src="images/svg/icon-bx/box-tick.svg" alt="/">
+								<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/svg/icon-bx/box-tick.svg" alt="/">
 							</div>
 							<div class="icon-content">
 								<h5 class="dz-title m-b10">Enjoy The Product</h5>
@@ -846,7 +846,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-md-4 col-sm-6">
 						<div class="widget widget_about me-2">
 							<div class="footer-logo logo-white">
-								<a href="index.html"><img src="images/logo.svg" alt="/"></a> 
+								<a href="index.html"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/logo.svg" alt="/"></a> 
 							</div>
 							<ul class="widget-address">
 								<li>
@@ -886,7 +886,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<ul>
 								<li>
 									<div class="dz-media">
-										<img src="images/shop/product/small/1.png" alt="/">
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/small/1.png" alt="/">
 									</div>
 									<div class="dz-content">
 										<h6 class="name"><a href="javascript:void(0);">Wooden Water Bottles</a></h6>
@@ -895,7 +895,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</li>
 								<li>
 									<div class="dz-media">
-										<img src="images/shop/product/small/2.png" alt="/">
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/small/2.png" alt="/">
 									</div>
 									<div class="dz-content">
 										<h6 class="name"><a href="javascript:void(0);">Eco friendly bags</a></h6>
@@ -904,7 +904,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</li>
 								<li>
 									<div class="dz-media">
-										<img src="images/shop/product/small/3.png" alt="/">
+										<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/small/3.png" alt="/">
 									</div>
 									<div class="dz-content">
 										<h6 class="name"><a href="javascript:void(0);">Bamboo toothbrushes</a></h6>
@@ -967,7 +967,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-lg-6 col-md-12 text-end"> 
 						<div class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-xl-end">
 							<span class="me-3">We Accept: </span>
-							<img src="images/footer-img.png" alt="/">
+							<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/footer-img.png" alt="/">
 						</div>
 					</div>
 				</div>
@@ -999,7 +999,7 @@ require_once __DIR__ . '/inc/footer.php';
 														<a class="mfp-link lg-item" href="images/products/baby-seat.png" data-src="images/products/baby-seat.png">
 															<i class="feather icon-maximize dz-maximize top-right"></i>
 														</a>
-														<img src="images/products/baby-seat.png" alt="image">
+														<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/baby-seat.png" alt="image">
 													</div>
 												</div>
 												<div class="swiper-slide">
@@ -1007,7 +1007,7 @@ require_once __DIR__ . '/inc/footer.php';
 														<a class="mfp-link lg-item" href="images/products/baby-seat2.png" data-src="images/products/baby-seat2.png">
 															<i class="feather icon-maximize dz-maximize top-right"></i>
 														</a>
-														<img src="images/products/baby-seat2.png" alt="image">
+														<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/baby-seat2.png" alt="image">
 													</div>
 												</div>
 												<div class="swiper-slide">
@@ -1015,7 +1015,7 @@ require_once __DIR__ . '/inc/footer.php';
 														<a class="mfp-link lg-item" href="images/products/baby-seat3.png" data-src="images/products/baby-seat3.png">
 															<i class="feather icon-maximize dz-maximize top-right"></i>
 														</a>
-														<img src="images/products/baby-seat3.png" alt="image">
+														<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/baby-seat3.png" alt="image">
 													</div>
 												</div>
 												<div class="swiper-slide">
@@ -1023,7 +1023,7 @@ require_once __DIR__ . '/inc/footer.php';
 														<a class="mfp-link lg-item" href="images/products/baby-seat.png" data-src="images/products/baby-seat.png">
 															<i class="feather icon-maximize dz-maximize top-right"></i>
 														</a>
-														<img src="images/products/baby-seat.png" alt="image">
+														<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/baby-seat.png" alt="image">
 													</div>
 												</div>
 											</div>
@@ -1031,16 +1031,16 @@ require_once __DIR__ . '/inc/footer.php';
 										<div class="swiper quick-modal-swiper thumb-swiper-lg thumb-sm swiper-vertical">
 											<div class="swiper-wrapper">
 												<div class="swiper-slide">
-													<img src="images/products/thumb-img/seat1.png" alt="image">
+													<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/thumb-img/seat1.png" alt="image">
 												</div>
 												<div class="swiper-slide">
-													<img src="images/products/thumb-img/seat2.png" alt="image">
+													<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/thumb-img/seat2.png" alt="image">
 												</div>
 												<div class="swiper-slide">
-													<img src="images/products/thumb-img/seat3.png" alt="image">
+													<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/thumb-img/seat3.png" alt="image">
 												</div>
 												<div class="swiper-slide">
-													<img src="images/products/thumb-img/seat1.png" alt="image">
+													<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/products/thumb-img/seat1.png" alt="image">
 												</div>
 											</div>
 										</div>
