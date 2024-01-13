@@ -8,7 +8,7 @@ class CategoryController extends Controller
     public function get()
     {
         
-return $this->view('frontend/products') ;
+return $this->view('frontend/category') ;
     }
    
 }

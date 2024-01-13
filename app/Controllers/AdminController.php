@@ -2,13 +2,13 @@
 
 use App\Libs\Controller;
 
-class CartController extends Controller
+class AdminController extends Controller
 {
 
     public function get()
     {
         
-return $this->view('frontend/cart') ;
+return $this->view('frontend/blog') ;
     }
    
 }
