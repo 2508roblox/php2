@@ -44,7 +44,7 @@ require_once __DIR__ . '/inc/footer.php';
 										<td class="product-item-name">Wooden Water Bottles </td>
 										<td class="product-item-price"><span>$45.00</span><strong>$28.00</strong></td>
 										<td class="product-item-stock text-primary">In Stock</td>
-										<td class="product-item-totle"><a href="shop-cart.html" class="btn btn-gray btnhover text-nowrap">Add To Cart</a></td>
+										<td class="product-item-totle"><a href="<?php url('cart')?>" class="btn btn-gray btnhover text-nowrap">Add To Cart</a></td>
 									</tr>
 									<tr>
 										<td class="product-item-close"><a href="javascript:void(0);"><i class="ti-close"></i></a></td>
@@ -52,7 +52,7 @@ require_once __DIR__ . '/inc/footer.php';
 										<td class="product-item-name">Wooden Cup</td>
 										<td class="product-item-price"><span>$95.00</span><strong>$56.00</strong></td>
 										<td class="product-item-stock text-primary">In Stock</td>
-										<td class="product-item-totle"><a href="shop-cart.html" class="btn btn-gray btnhover text-nowrap">Add To Cart</a></td>
+										<td class="product-item-totle"><a href="<?php url('cart')?>" class="btn btn-gray btnhover text-nowrap">Add To Cart</a></td>
 									</tr>
 									<tr>
 										<td class="product-item-close"><a href="javascript:void(0);"><i class="ti-close"></i></a></td>
@@ -60,7 +60,7 @@ require_once __DIR__ . '/inc/footer.php';
 										<td class="product-item-name">Bamboo toothbrushes</td>
 										<td class="product-item-price"><span>$56.00</span><strong>$20.00</strong></td>
 										<td class="product-item-stock text-primary">In Stock</td>
-										<td class="product-item-totle"><a href="shop-cart.html" class="btn btn-gray btnhover text-nowrap">Add To Cart</a></td>
+										<td class="product-item-totle"><a href="<?php url('cart')?>" class="btn btn-gray btnhover text-nowrap">Add To Cart</a></td>
 									</tr>
 								</tbody>
 							</table>

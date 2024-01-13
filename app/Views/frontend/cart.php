@@ -130,7 +130,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 							</div>
 							<div class="col-md-6 text-end">
-								<a href="shop-cart.html" class="btn btn-grey">UPDATE CART</a>
+								<a href="<?php url('cart')?>" class="btn btn-grey">UPDATE CART</a>
 							</div>
 						</div>
 					</div>
@@ -172,7 +172,7 @@ require_once __DIR__ . '/inc/footer.php';
 									</tr>
 								</tbody>
 							</table>
-							<a href="shop-checkout.html" class="btn btn-secondary w-100">PLACE ORDER</a>
+							<a href="<?php url('checkout')?>" class="btn btn-secondary w-100">PLACE ORDER</a>
 						</div>
 					</div>
 				</div>

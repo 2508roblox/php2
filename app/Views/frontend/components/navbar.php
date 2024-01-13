@@ -127,10 +127,10 @@
 					</div>
 					<ul class="recent-tag">
 						<li class="pe-0"><span>Quick Search :</span></li>
-						<li><a href="shop-list.html">Wooden Products</a></li>
-						<li><a href="shop-list.html">Metal Products</a></li>
-						<li><a href="shop-list.html">Baby Products</a></li>
-						<li><a href="shop-list.html">Yoga Mats</a></li>
+						<li><a href="<?php url('products/detail/123')?>">Wooden Products</a></li>
+						<li><a href="<?php url('products/detail/123')?>">Metal Products</a></li>
+						<li><a href="<?php url('products/detail/123')?>">Baby Products</a></li>
+						<li><a href="<?php url('products/detail/123')?>">Yoga Mats</a></li>
 					</ul>
 				</form>
 				<div class="row">
@@ -144,7 +144,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/1.png" alt="image">
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Wooden Water Bottles</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Wooden Water Bottles</a></h6>
 											<h6 class="price">$40.00</h6>
 										</div>
 									</div>
@@ -155,7 +155,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/3.png" alt="image">
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Bamboo toothbrushes</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Bamboo toothbrushes</a></h6>
 											<h6 class="price">$30.00</h6>
 										</div>
 									</div>
@@ -166,7 +166,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/4.png" alt="image">
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Eco friendly bags</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Eco friendly bags</a></h6>
 											<h6 class="price">$35.00</h6>
 										</div>
 									</div>
@@ -177,7 +177,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/2.png" alt="image">
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Wooden Cup</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Wooden Cup</a></h6>
 											<h6 class="price">$20.00</h6>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/5.png" alt="image">
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Bamboo toothbrushes</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Bamboo toothbrushes</a></h6>
 											<h6 class="price">$70.00</h6>
 										</div>
 									</div>
@@ -199,7 +199,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/6.png" alt="image">
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Eco friendly bags</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Eco friendly bags</a></h6>
 											<h6 class="price">$45.00</h6>
 										</div>
 									</div>
@@ -210,7 +210,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/7.png" alt="image">	
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Wooden Bottles</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Wooden Bottles</a></h6>
 											<h6 class="price">$40.00</h6>
 										</div>
 									</div>
@@ -221,7 +221,7 @@
 											<img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/shop/product/4.png" alt="image">	
 										</div>
 										<div class="dz-content">
-											<h6 class="title"><a href="shop-list.html">Paper Bags</a></h6>
+											<h6 class="title"><a href="<?php url('products/detail/123')?>">Paper Bags</a></h6>
 											<h6 class="price">$60.00</h6>
 										</div>
 									</div>
@@ -334,8 +334,8 @@
 												</div>
 											</div>
 										</div>
-										<a href="shop-checkout.html" class="btn btn-light btn-block m-b20">Checkout</a>	
-										<a href="shop-cart.html" class="btn btn-secondary btn-block">View Cart</a>	
+										<a href="<?php url('checkout')?>" class="btn btn-light btn-block m-b20">Checkout</a>	
+										<a href="<?php url('cart')?>" class="btn btn-secondary btn-block">View Cart</a>	
 									</div>	
 								</div>	
 							</div>

@@ -27,19 +27,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-8">
 						<h4 class="title m-b15">Billing details</h4>
 						<div class="accordion dz-accordion accordion-sm" id="accordionFaq">
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="headingOne">
-									<a href="#" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-										Returning customer? &nbsp; <span class="text-primary">Click here to login</span>
-										<span class="toggle-close"></span>
-									</a>
-								</h2>
-								<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFaq">
-									<div class="accordion-body">
-										<p class="m-b0">If your order has not yet shipped, you can contact us to change your shipping address</p>
-									</div>
-								</div>
-							</div>
+						 
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="headingTwo">
 									<a href="#" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
@@ -67,18 +55,13 @@ require_once __DIR__ . '/inc/footer.php';
 									<input name="dzName" required="" class="form-control">
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="form-group m-b25">
-									<label class="label-title">Company name (optional)</label>
-									<input name="dzName" required="" class="form-control">
-								</div>
-							</div>
+							 
 							<div class="col-md-12">
 								<div class="m-b25">
 									<label class="label-title">Country / Region *</label>
 									<div class="form-select">
 										<select class="default-select w-100">
-											<option selected>India</option>
+											<option selected>Viet Nam</option>
 											<option value="1">Another option</option>
 											<option value="2">UK</option>
 											<option value="3">Iraq</option>
@@ -88,10 +71,9 @@ require_once __DIR__ . '/inc/footer.php';
 							</div>
 							<div class="col-md-12">
 								<div class="form-group m-b25">
-									<label class="label-title">Street address *</label>
+									<label class="label-title">Street address * </label>
 									<input name="dzName" required="" class="form-control m-b15" placeholder="House number and street name">
-									<input name="dzName" required="" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)">
-								</div>
+									</div>
 							</div>
 							<div class="col-md-12">
 								<div class="m-b25">
@@ -106,19 +88,7 @@ require_once __DIR__ . '/inc/footer.php';
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="m-b25">
-									<label class="label-title">State *</label>
-									<div class="form-select">
-										<select class="default-select w-100">
-											  <option selected>Rajasthan</option>
-											  <option value="1">Another option</option>
-											  <option value="2">Rajasthan</option>
-											  <option value="3">Rajasthan</option>
-										</select>	
-									</div>
-								</div>
-							</div>
+							 
 							<div class="col-md-12">
 								<div class="form-group m-b25">
 									<label class="label-title">ZIP Code *</label>
@@ -131,26 +101,8 @@ require_once __DIR__ . '/inc/footer.php';
 									<input name="dzName" required="" class="form-control">
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="form-group m-b25">
-									<label class="label-title">Email address *</label>
-									<input name="dzName" required="" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-12 m-b25">
-								<div class="form-group m-b5">
-								   <div class="custom-control custom-checkbox">
-										<input type="checkbox" class="form-check-input" id="basic_checkbox_1">
-										<label class="form-check-label" for="basic_checkbox_1">Create an account? </label>
-									</div>
-								</div>
-								<div class="form-group">
-								   <div class="custom-control custom-checkbox">
-										<input type="checkbox" class="form-check-input" id="basic_checkbox_2">
-										<label class="form-check-label" for="basic_checkbox_2">Ship to a different address?</label>
-									</div>
-								</div>
-							</div>
+							 
+							 
 							<div class="col-md-12 m-b25">
 								<div class="form-group">
 									<label class="label-title">Order notes (optional)</label>
@@ -271,7 +223,7 @@ require_once __DIR__ . '/inc/footer.php';
 									<label class="form-check-label" for="basic_checkbox_3">I have read and agree to the website terms and conditions </label>
 								</div>
 							</div>
-							<a href="shop-checkout.html" class="btn btn-secondary w-100">PLACE ORDER</a>
+							<a href="<?php url('checkout')?>" class="btn btn-secondary w-100">PLACE ORDER</a>
 						</div>
 					</div>
 				</div>

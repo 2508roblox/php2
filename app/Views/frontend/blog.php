@@ -39,7 +39,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html">Embrace Luxury Living with our Elegant Couches</a>
+									<a href="<?php url('blog/detail/123')?>">Embrace Luxury Living with our Elegant Couches</a>
 								</h4>
 							</div>
 						</div>
@@ -59,7 +59,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html">Sink into Comfort with our Luxurious Couch Collection</a>
+									<a href="<?php url('blog/detail/123')?>">Sink into Comfort with our Luxurious Couch Collection</a>
 								</h4>
 							</div>
 						</div>
@@ -79,7 +79,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html">Uncovering the Benefits of Plant-Based Products</a>
+									<a href="<?php url('blog/detail/123')?>">Uncovering the Benefits of Plant-Based Products</a>
 								</h4>
 							</div>
 						</div>
@@ -99,7 +99,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html">Nurture Your Skin with Plant-Based Solutions</a>
+									<a href="<?php url('blog/detail/123')?>">Nurture Your Skin with Plant-Based Solutions</a>
 								</h4>
 							</div>
 						</div>
@@ -119,7 +119,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html">Experience the Magic of Plant-Based Products</a>
+									<a href="<?php url('blog/detail/123')?>">Experience the Magic of Plant-Based Products</a>
 								</h4>
 							</div>
 						</div>
@@ -139,7 +139,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html"> Transform Your Skin with Plant-Based Skincare</a>
+									<a href="<?php url('blog/detail/123')?>"> Transform Your Skin with Plant-Based Skincare</a>
 								</h4>
 							</div>
 						</div>
@@ -159,7 +159,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html"> Embrace Plant-Based Skincare for a Fresh Glow Skin</a>
+									<a href="<?php url('blog/detail/123')?>"> Embrace Plant-Based Skincare for a Fresh Glow Skin</a>
 								</h4>
 							</div>
 						</div>
@@ -179,7 +179,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html"> Maintain Health with our Biodegradable Wooden Product</a>
+									<a href="<?php url('blog/detail/123')?>"> Maintain Health with our Biodegradable Wooden Product</a>
 								</h4>
 							</div>
 						</div>
@@ -199,7 +199,7 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 								
 								<h4 class="dz-title mb-0">
-									<a href="post-standard.html">Organic Skincare for Glowing Complexion.</a>
+									<a href="<?php url('blog/detail/123')?>">Organic Skincare for Glowing Complexion.</a>
 								</h4>
 							</div>
 						</div>

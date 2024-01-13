@@ -10,5 +10,10 @@ class BlogController extends Controller
         
 return $this->view('frontend/blog') ;
     }
+    public function detail($blog_id)
+    {
+        
+return $this->view('frontend/blog_detail') ;
+    }
    
 }
