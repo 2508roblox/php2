@@ -25,7 +25,7 @@ require_once __DIR__ . '/inc/header.php';
             <?php if (isset($data['message'])): ?>
     <div class="message" style="color:red"><?php echo $data['message']; ?></div>
 <?php endif; ?>
-            <form id="cate_form" action="<?php url('admin/categoryadd') ?>" enctype="multipart/form-data" method="POST">
+            <form id="cate_form" action="" enctype="multipart/form-data" method="POST">
             <div class="sa-entity-layout"
                 data-sa-container-query="{&quot;920&quot;:&quot;sa-entity-layout--size--md&quot;,&quot;1100&quot;:&quot;sa-entity-layout--size--lg&quot;}">
                 <div class="sa-entity-layout__body">
@@ -36,22 +36,19 @@ require_once __DIR__ . '/inc/header.php';
                                     <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                 </div>
                                 <div class="mb-4"><label for="form-category/name" class="form-label">Name</label><input
-                                        type="text" name="name" class="form-control" id="form-category/name" value="Hand Tools" />
+                                        type="text" name="name" class="form-control" id="form-category/name" value="<?php echo $data['category']['name'] ?>" />
                                 </div>
                                 <div class="mb-4"><label for="form-category/slug" class="form-label">Slug</label>
                                     <div class="input-group input-group--sa-slug"><span class="input-group-text"
                                             id="form-category/slug-addon">https://example.com/catalog/</span><input
+                                                value="<?php echo $data['category']['slug'] ?>"
                                             type="text" class="form-control" id="form-category/slug" name="slug"
                                             aria-describedby="form-category/slug-addon form-category/slug-help"
-                                            value="hand-tools" /></div>
+                                             /></div>
                                     <div id="form-category/slug-help" class="form-text">Unique human-readable category
                                         identifier. No longer than 255 characters.</div>
                                 </div>
-                                <div class="mb-4"><label for="form-category/description"
-                                        class="form-label">Description</label><textarea id="form-category/description"
-                                        class="sa-quill-control form-control"name="description"
-                                        rows="8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.</textarea>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="card mt-5">
@@ -79,6 +76,7 @@ require_once __DIR__ . '/inc/header.php';
                                 </div>
                                 <div><label for="form-category/seo-title" class="form-label">Publish date</label><input
                                 name="publish_date"
+                                value="<?php echo $data['category']['publish_date'] ?>"
                                         type="text" class="form-control datepicker-here" id="form-category/publish-date"
                                         data-auto-close="true" data-language="en" />
                                     <div class="form-text">The category will not be visible until the specified date.
@@ -95,9 +93,9 @@ require_once __DIR__ . '/inc/header.php';
                                     <h2 class="mb-0 fs-exact-18">Image</h2>
                                 </div>
                                 <div class="border p-4 d-flex justify-content-center">
-    <input type="file" id="imageUpload" name="image" onchange="previewImage(event)">
+    <input type="file" hidden id="imageUpload" name="image" onchange="previewImage(event)">    
     <div class="max-w-20x">
-        <img id="preview" class="w-100 h-auto" width="320" height="320" alt="" />
+        <img id="preview" src="<?php assets($data['category']['image'] ) ?>" class="w-100 h-auto" width="320" height="320" alt="" />
     </div>
 </div>
 <div id="imageActions" class="mt-4 mb-n2">
