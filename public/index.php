@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-session_start();
+ 
 
 use \App\Core\Core as Core;
 use \App\Helpers\Format as Format;
@@ -13,4 +13,5 @@ include "../app/Helpers/redirect.php";
 include "../app/Helpers/url.php";
 include "../app/Helpers/assets.php";
 include "../app/Helpers/flash_session.php";
+$core = Session::init();
 $core = new Core();
