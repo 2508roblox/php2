@@ -19,7 +19,7 @@ require_once __DIR__ . '/inc/footer.php';
 						<h1>My Account</h1>
 						<nav aria-label="breadcrumb text-align-start" class="breadcrumb-row">
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html"> Home</a></li>
+								<li class="breadcrumb-item"><a href="<?php url('') ?>"> Home</a></li>
 								<li class="breadcrumb-item">My Account</li>
 							</ul>
 						</nav>	
@@ -32,14 +32,21 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="login-area">
 						<h2 class="text-secondary text-center">Welcome Back</h2>
 						<p class="text-center m-b25">welcome please login to your account</p>
-						<form>
+						<?php 
+							$errorMessage = getFlash('error');
+							if ($errorMessage) {
+								echo $errorMessage;
+							}
+							?>
+						<form id="cate_form" action=""   method="POST">
+
 							<div class="m-b30">
 								<label class="label-title">Email Address</label>
-								<input name="dzName" required="" class="form-control" placeholder="Email Address" type="email">
+								<input name="email" required="" class="form-control" placeholder="Email Address" type="email">
 							</div>
 							<div class="m-b15">
 								<label class="label-title">Password</label>
-								<input name="dzName" required="" class="form-control" placeholder="Password" type="password">
+								<input name="password" required="" class="form-control" placeholder="Password" type="password">
 							</div>
 							<div class="form-row d-flex justify-content-between m-b30">
 								<div class="form-group">
@@ -53,8 +60,8 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 							</div>
 							<div class="text-center">
-								<a href="shop-my-account.html" class="btn btn-secondary btnhover text-uppercase me-2">Sign In</a>
-								<a href="shop-registration.html" class="btn btn-outline-secondary btnhover text-uppercase">Register</a>
+								<button type="submit"  class="btn btn-secondary btnhover text-uppercase me-2">Sign In</button>
+								<a href="<?php url('auth/register') ?>" class="btn btn-outline-secondary btnhover text-uppercase">Register</a>
 							</div>
 						</form>
 					</div>
@@ -130,7 +137,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-md-4 col-sm-6">
 						<div class="widget widget_about me-2">
 							<div class="footer-logo logo-white">
-								<a href="index.html"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/logo.svg" alt="/"></a> 
+								<a href="<?php url('') ?>"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/logo.svg" alt="/"></a> 
 							</div>
 							<ul class="widget-address">
 								<li>

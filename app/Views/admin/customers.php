@@ -11,7 +11,7 @@ require_once __DIR__ . '/inc/header.php';
                     <div class="col">
                         <nav class="mb-2" aria-label="breadcrumb">
                             <ol class="breadcrumb breadcrumb-sa-simple">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="<?php url('') ?>">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Customers</li>
                             </ol>
                         </nav>

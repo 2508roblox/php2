@@ -17,7 +17,7 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="error-inner">
 								<h1 class="dz_error">404</h1>
 								<p class="error-head">Oh, no! This page does not exist.</p>
-								<a href="index.html" class="btn btn-secondary  text-uppercase">Go to Main Page</a>
+								<a href="<?php url('') ?>" class="btn btn-secondary  text-uppercase">Go to Main Page</a>
 							</div>
 						</div>
 					</div>
@@ -92,7 +92,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-md-4 col-sm-6">
 						<div class="widget widget_about me-2">
 							<div class="footer-logo logo-white">
-								<a href="index.html"><img src="images/logo.svg" alt=""></a> 
+								<a href="<?php url('') ?>"><img src="images/logo.svg" alt=""></a> 
 							</div>
 							<ul class="widget-address">
 								<li>

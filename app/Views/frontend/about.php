@@ -14,7 +14,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<h1>About us</h1>
 					<nav aria-label="breadcrumb" class="breadcrumb-row">
 						<ul class="breadcrumb">
-							<li class="breadcrumb-item"><a href="index.html"> Home</a></li>
+							<li class="breadcrumb-item"><a href="<?php url('') ?>"> Home</a></li>
 							<li class="breadcrumb-item">About us</li>
 						</ul>
 					</nav>
@@ -368,7 +368,7 @@ require_once __DIR__ . '/inc/footer.php';
 					<div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
 						<div class="widget widget_about me-2">
 							<div class="footer-logo logo-white">
-								<a href="index.html"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/logo.svg" alt=""></a> 
+								<a href="<?php url('') ?>"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/logo.svg" alt=""></a> 
 							</div>
 							<ul class="widget-address">
 								<li>

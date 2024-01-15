@@ -11,12 +11,12 @@ require_once __DIR__ . '/inc/header.php';
                     <div class="col">
                         <nav class="mb-2" aria-label="breadcrumb">
                             <ol class="breadcrumb breadcrumb-sa-simple">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="<?php url('') ?>">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a href="app-products-list.html">Products</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
+                                <li class="breadcrumb-item active" aria-current="page">Create Product</li>
                             </ol>
                         </nav>
-                        <h1 class="h3 m-0">Edit Product</h1>
+                        <h1 class="h3 m-0">Create Product</h1>
                     </div>
                     <div class="col-auto d-flex"><a href="#" class="btn btn-secondary me-3">Duplicate</a><a href="#"
                             class="btn btn-primary">Save</a></div>
@@ -124,69 +124,7 @@ require_once __DIR__ . '/inc/header.php';
                                                             </path>
                                                         </svg></button></td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div
-                                                        class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                        <img src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-16-2-40x40.jpg"
-                                                            width="40" height="40" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" class="form-control form-control-sm" /></td>
-                                                <td><input type="number" class="form-control form-control-sm w-4x"
-                                                        value="1" /></td>
-                                                <td><button class="btn btn-sa-muted btn-sm mx-n3" type="button"
-                                                        aria-label="Delete image" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title="Delete image"><svg
-                                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                            viewBox="0 0 12 12" fill="currentColor">
-                                                            <path
-                                                                d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                            </path>
-                                                        </svg></button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div
-                                                        class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                        <img src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-16-3-40x40.jpg"
-                                                            width="40" height="40" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" class="form-control form-control-sm" /></td>
-                                                <td><input type="number" class="form-control form-control-sm w-4x"
-                                                        value="2" /></td>
-                                                <td><button class="btn btn-sa-muted btn-sm mx-n3" type="button"
-                                                        aria-label="Delete image" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title="Delete image"><svg
-                                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                            viewBox="0 0 12 12" fill="currentColor">
-                                                            <path
-                                                                d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                            </path>
-                                                        </svg></button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div
-                                                        class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                        <img src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-16-4-40x40.jpg"
-                                                            width="40" height="40" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" class="form-control form-control-sm" /></td>
-                                                <td><input type="number" class="form-control form-control-sm w-4x"
-                                                        value="3" /></td>
-                                                <td><button class="btn btn-sa-muted btn-sm mx-n3" type="button"
-                                                        aria-label="Delete image" data-bs-toggle="tooltip"
-                                                        data-bs-placement="right" title="Delete image"><svg
-                                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                            viewBox="0 0 12 12" fill="currentColor">
-                                                            <path
-                                                                d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                            </path>
-                                                        </svg></button></td>
-                                            </tr>
+                                         <!-- #region -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -233,14 +171,14 @@ require_once __DIR__ . '/inc/header.php';
                             <div class="card-body p-5">
                                 <div class="mb-5">
                                     <h2 class="mb-0 fs-exact-18">Categories</h2>
-                                </div><select class="sa-select2 form-select" multiple="">
-                                    <option selected="">Power tools</option>
-                                    <option>Screwdrivers</option>
-                                    <option selected="">Chainsaws</option>
-                                    <option>Hand tools</option>
-                                    <option>Machine tools</option>
-                                    <option>Power machinery</option>
-                                    <option>Measurements</option>
+                                </div><select  class="sa-select2 form-select"  >
+                                    <option name="category"  >Power tools</option>
+                                    <option name="category">Screwdrivers</option>
+                                    <option name="category"  >Chainsaws</option>
+                                    <option name="category">Hand tools</option>
+                                    <option name="category">Machine tools</option>
+                                    <option name="category">Power machinery</option>
+                                    <option name="category">Measurements</option>
                                 </select>
                                 <div class="mt-4 mb-n2"><a href="#">Add new category</a></div>
                             </div>
