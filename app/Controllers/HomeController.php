@@ -7,10 +7,10 @@ class HomeController extends Controller
 
     public function get()
     {
-       
 
-            $this->view('frontend/index');
-         
+        $slides =  $this->model('product')->getProductsBySlide();
+        $latestProducts =  $this->model('product')->getLatestProducts();
+        $this->view('frontend/index', ['slides' => $slides, 'latestProducts' => $latestProducts]);
     }
     public function getProducts()
     {
