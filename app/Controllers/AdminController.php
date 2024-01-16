@@ -12,12 +12,57 @@ class AdminController extends Controller
     }
     public function products()
     {
+        $products =  $this->model('product')->getAllProducts();
 
         # code...
-        $this->view('admin/products');
+        $this->view('admin/products', ['products' => $products]);
     }
     public function productadd()
     {
+        $category =  $this->model('category')->getAll();
+        # code...
+        $this->view('admin/products-add', ['categories' => $category]);
+    }
+    public function store_add_product()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $images = $_FILES['images'];
+            $result =  $this->model('product')->addProduct($_POST, $images);
+
+            if ($result) {
+                foreach ($images['name'] as $key => $name) {
+                    $tmp_name = $images['tmp_name'][$key];
+                    $error = $images['error'][$key];
+
+                    if ($error === UPLOAD_ERR_OK) {
+                        $uploadDir = 'upload/';
+                        $fileName = uniqid() . '_' . $name;
+                        $destination = $uploadDir . $fileName;
+
+                        if (move_uploaded_file($tmp_name, $destination)) {
+                            // File moved successfully, update the file path in the database
+                            $resultss = $this->model('productimages')->addImage($fileName, $result);
+                        } else {
+                            // Failed to move the file, handle the error
+                            echo "Error moving file: " . $name . "<br>";
+                            echo "<br>";
+                        }
+                    }
+                }
+                $message = 'Product created successfully';
+
+                $this->view('admin/products', ['message' => $message]);
+                exit;
+            } else {
+                // Log the result
+                // Example:
+                $message = 'Failed to create category';
+                $this->view('admin/category-add', ['message' => $message]);
+            }
+
+            $this->view('admin/products-add');
+        }
 
         # code...
         $this->view('admin/products-add');
@@ -25,8 +70,8 @@ class AdminController extends Controller
     public function categories()
     {
 
-      $category =  $this->model('category')->getAll();
-        $this->view('admin/categories', ['categories' =>$category ]);
+        $category =  $this->model('category')->getAll();
+        $this->view('admin/categories', ['categories' => $category]);
     }
     public function categoryadd()
     {
@@ -43,18 +88,17 @@ class AdminController extends Controller
             if ($result) {
                 // Log the result
                 // Example:
-            $message = 'Category created successfully';
+                $message = 'Category created successfully';
 
                 // Redirect back
                 // Example:
                 $this->view('admin/category-add', ['message' => $message]);
                 exit;
-              
             } else {
                 // Log the result
                 // Example:
-        $message = 'Failed to create category';
-        $this->view('admin/category-add', ['message' => $message]);
+                $message = 'Failed to create category';
+                $this->view('admin/category-add', ['message' => $message]);
             }
         } else {
             $this->view('admin/category-add');
@@ -63,7 +107,7 @@ class AdminController extends Controller
     }
     public function categoryedit($id)
     {
-       
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Form data has been submitted, process it
             if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
@@ -76,14 +120,14 @@ class AdminController extends Controller
             // Process and save the form data as needed
             $result =  $this->model('category')->edit($_POST, $id);
             if ($result) {
-             
+
                 $message = 'Category created successfully';
 
-                
-            redirect('admin/categories');
+
+                redirect('admin/categories');
                 exit;
             } else {
-            
+
                 $message = 'Failed to create category';
                 $this->view('admin/category-edit', ['message' => $message]);
             }
@@ -94,16 +138,15 @@ class AdminController extends Controller
             $category = $this->model('category')->getCategoryById($id);
             $this->view('admin/category-edit', ['category' => $category]);
         }
-       
     }
     public function categorydelete($id)
     {
-         $this->model('category')->delete_cate($id);
-     
-        redirect('admin/categories');
-        
+        $this->model('category')->delete_cate($id);
 
-        
+        redirect('admin/categories');
+
+
+
         # code...
     }
     public function customers()

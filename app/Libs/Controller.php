@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Libs;
 
 use App\Helpers\Format;
@@ -15,7 +16,7 @@ class Controller
     }
     public function model($model)
     {
-        $exit_model = array('brand', 'wishlist', 'user', 'shop', 'auth' ,'admin', 'cart', 'category', 'contact', 'customer', 'orderdetail', 'orders', 'product', 'slide');
+        $exit_model = array('brand', 'wishlist', 'productimages', 'user', 'shop', 'auth', 'admin', 'cart', 'category', 'contact', 'customer', 'orderdetail', 'orders', 'product', 'slide');
 
         // model first name ex: product
         if (in_array($model, $exit_model)) {
@@ -28,7 +29,7 @@ class Controller
     }
     public function view($view, $data = [''])
     {
-        
+
         if (file_exists('../app/Views/' .  $view . '.php')) {
             require_once __DIR__ . "/../Views/" . $view . '.php';
         } else {
