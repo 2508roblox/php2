@@ -51,7 +51,7 @@ require_once __DIR__ . '/inc/header.php';
                                     </div>
                                     <div class="mb-n2 mt-n3"><label class="form-check"><input type="radio" class="form-check-input" name="is_active" value="1" checked="" /><span class="form-check-label">Enabled</span></label><label class="form-check mb-0"><input value="0" type="radio" class="form-check-input" name="is_active" /><span class="form-check-label">Disabled</span></label></div>
                                     <div class="  mr-4 ml-4 mt-4"> <label for="form-product/seo-title" class="form-label">Expries date
-                                            </label><input name="expries_at" type="text" class="form-control datepicker-here" id="form-product/publish-date" data-auto-close="true" data-language="en">
+                                            </label><input name="expires_at" type="text" class="form-control datepicker-here" id="form-product/publish-date" data-auto-close="true" data-language="en">
                                     </div>
                                 </div>
                               

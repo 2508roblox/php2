@@ -5,9 +5,11 @@ namespace App\Helpers;
  */
 class Format
 {
-    public function formatDate($date)
+    public static function formatDate($date)
     {
-        return date('F j, Y, g:i a', strtotime($date));
+        $timestamp = strtotime($date); // Chuyển đổi chuỗi thành timestamp
+        $dateTime = date('Y-m-d H:i:s', $timestamp);
+        return $dateTime;
     }
 
     public function textShorten($text, $limit = 400)
@@ -17,6 +19,11 @@ class Format
         $text = substr($text, 0, strrpos($text, ' '));
         $text = $text . "...";
         return $text;
+    }
+    public static function currency($number)
+    {
+        $formattedNumber = number_format($number);
+        echo $formattedNumber;
     }
 
     public function validation($data)
