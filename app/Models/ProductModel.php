@@ -96,9 +96,46 @@ class ProductModel extends Database
         $sql = "SELECT p.*, c.name AS category_name, pi.image AS product_image
             FROM products AS p
             JOIN categories AS c ON p.category_id = c.id
-            LEFT JOIN product_img AS pi ON p.id = pi.product_id
+            LEFT JOIN (
+                SELECT product_id, MIN(id) AS min_image_id, image
+                FROM product_img
+                GROUP BY product_id
+            ) AS pi ON p.id = pi.product_id
             ORDER BY p.publish_date DESC
             LIMIT 8";
+
+        $result = $this->select($sql);
+
+        if ($result !== false) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function getProductDetails($id)
+    {
+        $sql = "SELECT p.*, c.name AS category_name 
+            FROM products AS p
+            JOIN categories AS c ON p.category_id = c.id
+        
+            WHERE p.id = $id
+            ORDER BY p.publish_date DESC";
+
+        $result = $this->select($sql);
+
+        if ($result !== false) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function getProductImages($id)
+    {
+        $sql = "SELECT  * 
+            FROM product_img
+            
+            WHERE product_img.product_id = $id
+            ORDER BY id DESC";
 
         $result = $this->select($sql);
 
