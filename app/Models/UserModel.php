@@ -4,6 +4,28 @@ use App\Libs\Database;
 
 class UserModel extends Database
 {
+    public function getCustomers()
+    {
+        //check exist email
+       
+
+        $sql = "SELECT * from users ";
+        $result = $this->select($sql);
+        if ($result) {
+            $customers = [];
+        
+            if ($result) {
+                while ($row = $result->fetch_assoc()) {
+                    $customers[] = $row;
+                }
+            }
+            return $customers;
+        } else {
+            
+                return false ; // User created successfully
+           
+        }
+    }
     public function createUser($data)
     {
         //check exist email
@@ -60,5 +82,41 @@ class UserModel extends Database
             return false;
             //create user
         }
+    }
+    public function update_role($id)
+    {
+        //check exist email
+
+       
+        
+
+        $sql = "UPDATE users SET role = 1 WHERE id = '$id'";
+        $exist_user = $this->update($sql);
+        if ($exist_user) {
+           return true;
+        }
+        else {
+            return false;
+        }
+       
+    
+    }
+    public function delete_user($id)
+    {
+        //check exist email
+
+       
+        
+
+        $sql = "DELETE FROM users WHERE id = '$id'";
+        $exist_user = $this->delete($sql);
+        if ($exist_user) {
+           return true;
+        }
+        else {
+            return false;
+        }
+       
+    
     }
 }

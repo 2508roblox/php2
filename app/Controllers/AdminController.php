@@ -109,8 +109,22 @@ class AdminController extends Controller
     public function customers()
     {
 
-        # code...
-        $this->view('admin/customers');
+       $customers = $this->model('user')->getCustomers();
+        $this->view('admin/customers', ['customers' => $customers]);
+    }
+    public function update_to_admin()
+    {
+        $id = $_POST['user_id'];
+       $result =  $this->model('user')->update_role($id);
+     
+        redirect('admin/customers');
+    }
+    public function delete_customer($id)
+    {
+        echo $id;
+       $result =  $this->model('user')->delete_user($id);
+        
+        redirect('admin/customers');
     }
     public function customerdetails()
     {

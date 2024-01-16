@@ -34,23 +34,7 @@ require_once __DIR__ . '/inc/footer.php';
 														<span class="price-name">Price</span>
 														<span class="price-num">$125.75</span>
 													</div>
-													<div class="meta-content">
-														<span class="color-name">Color</span>
-														<div class="d-flex align-items-center color-filter">
-															<div class="form-check">
-																<input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="#24262B" aria-label="..." checked>
-																<span></span>
-															</div>
-															<div class="form-check">
-																<input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2" value="#0D775E" aria-label="...">
-																<span></span>
-															</div>
-															<div class="form-check">
-																<input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3" value="#C7D1CF" aria-label="...">
-																<span></span>
-															</div>
-														</div>
-													</div>
+												 
 												</div>
 												
 												<div class="content-btn" data-swiper-parallax="-60">
@@ -86,23 +70,7 @@ require_once __DIR__ . '/inc/footer.php';
 														<span class="price-name">Price</span>
 														<span class="price-num">$120.80</span>
 													</div>
-													<div class="meta-content">
-														<span class="color-name">Color</span>
-														<div class="d-flex align-items-center color-filter">
-															<div class="form-check">
-																<input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel4" value="#24262B" aria-label="..." checked>
-																<span></span>
-															</div>
-															<div class="form-check">
-																<input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel5" value="#0D775E" aria-label="...">
-																<span></span>
-															</div>
-															<div class="form-check">
-																<input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel6" value="#C7D1CF" aria-label="...">
-																<span></span>
-															</div>
-														</div>
-													</div>
+													 
 												</div>
 												
 												<div class="content-btn" data-swiper-parallax="-60">
