@@ -195,8 +195,20 @@ class AdminController extends Controller
     }
     public function couponadd()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+             $result = $this->model('coupon')->_create($_POST);
+            if ($result) {
+                redirect('admin/coupons');
+            }
+            else {
+                flash('error', 'Something went wrong!');
+                $this->view('admin/coupon-add');
+            }
+        }
+        else {
 
-        # code...
-        $this->view('admin/coupon-add');
+            # code...
+            $this->view('admin/coupon-add');
+        }
     }
 }

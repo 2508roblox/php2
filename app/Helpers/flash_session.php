@@ -25,12 +25,15 @@ function getFlash($key)
         unset($_SESSION['flash'][$key]);
         if ($key === 'error') {
             // Return the flash message wrapped in a <p> tag with red color style
-            return '<p style="color: red;">' . $message . '</p>';
+            echo  '<p style="color: red;">' . $message . '</p>';
+        }else {
+
+            // Return the flash message
+            echo $message;
         }
-        // Return the flash message
-        return $message;
     }
 
     // Return null if the flash message doesn't exist
     return null;
 }
+ 

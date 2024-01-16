@@ -103,6 +103,7 @@ require_once __DIR__ . '/inc/header.php';
                             </tr>
                         </thead>
                         <tbody>
+                               <?php if (isset($data['customers'] ) && is_array($data['customers'])): ?>
                             <?php foreach ($data['products'] as $product) : ?>
 
                                 <tr>
@@ -150,7 +151,7 @@ require_once __DIR__ . '/inc/header.php';
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-
+<?php endif ?>
                         </tbody>
                     </table>
                 </div>
