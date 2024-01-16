@@ -21,6 +21,7 @@ class ProductModel extends Database
         $meta_keyword = $data['meta_keyword'];
         $meta_description = $data['meta_description'];
         $category_id = $data['category_id'];
+        $slide = $data['slide'] ? 1 : 0;;
 
 
 
@@ -42,11 +43,11 @@ class ProductModel extends Database
 
         $sql = "INSERT INTO products 
         (name, slug, small_description, description, price, promotion_price, quantity,
-         feature, status, publish_date, meta_keyword, meta_description, category_id)
+         feature, status, publish_date, meta_keyword, meta_description, category_id,slide)
         VALUES 
         ('$name', '$slug', '$small_description', '$description', '$price',
          '$promotion_price', '$quantity', '$feature', '$status', '$publish_date',
-         '$meta_keyword', '$meta_description', '$category_id')";
+         '$meta_keyword', '$meta_description', '$category_id', '$slide')";
         $result = $this->insert($sql);
         if ($result) {
             // Get the ID of the inserted product
@@ -64,6 +65,40 @@ class ProductModel extends Database
                 LEFT JOIN product_img as pi ON p.id = pi.product_id
                 GROUP BY p.id
                 ";
+
+        $result = $this->select($sql);
+
+        if ($result !== false) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function getProductsBySlide()
+    {
+        $sql = "SELECT p.*, c.name AS category_name, pi.image AS product_image
+            FROM products as p
+            JOIN categories  as c ON p.category_id = c.id
+            LEFT JOIN product_img as pi ON p.id = pi.product_id
+            WHERE p.slide = 1
+            GROUP BY p.id";
+
+        $result = $this->select($sql);
+
+        if ($result !== false) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function getLatestProducts()
+    {
+        $sql = "SELECT p.*, c.name AS category_name, pi.image AS product_image
+            FROM products AS p
+            JOIN categories AS c ON p.category_id = c.id
+            LEFT JOIN product_img AS pi ON p.id = pi.product_id
+            ORDER BY p.publish_date DESC
+            LIMIT 8";
 
         $result = $this->select($sql);
 
