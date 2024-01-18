@@ -162,4 +162,65 @@ class ProductModel extends Database
 
         return $product;
     }
+    public function product_edit($data, $images, $id)
+    {
+        // Retrieve the existing product data
+        $query = "SELECT * FROM products WHERE id = '$id'";
+        $result = $this->select($query); // Assuming $this->db is your mysqli connection object
+    
+        $product = $result->fetch_assoc();
+        // Update the product data with the new values
+        $product['name'] = mysqli_escape_string($this->link, $data['name']);
+        $product['slug'] = mysqli_escape_string($this->link, $data['slug']);
+        $product['small_description'] = mysqli_escape_string($this->link, $data['small_description']);
+        $product['description'] = mysqli_escape_string($this->link, $data['description']);
+        $product['price'] = mysqli_escape_string($this->link, $data['price']);
+        $product['promotion_price'] = mysqli_escape_string($this->link, $data['promotion_price']) ?? 0;
+        $product['quantity'] = mysqli_escape_string($this->link, $data['quantity']);
+        $product['feature'] = mysqli_escape_string($this->link, $data['feature'] ? true : false);
+        $product['status'] = mysqli_escape_string($this->link, $data['status']);
+        $product['publish_date'] = mysqli_escape_string($this->link, $data['publish_date']);
+        $product['meta_keyword'] = mysqli_escape_string($this->link, $data['meta_keyword']);
+        $product['meta_description'] = mysqli_escape_string($this->link, $data['meta_description']);
+        $product['slide'] = mysqli_escape_string($this->link, $data['slide'] ? 1 : 0);
+        $product['category_id'] = mysqli_escape_string($this->link, $data['category_id']);
+    
+        // Update the product in the database
+        $sql = "UPDATE products SET
+                name = '{$product['name']}',
+                slug = '{$product['slug']}',
+                small_description = '{$product['small_description']}',
+                description = '{$product['description']}',
+                price = '{$product['price']}',
+                promotion_price = '{$product['promotion_price']}',
+                quantity = '{$product['quantity']}',
+                feature = '{$product['feature']}',
+                status = '{$product['status']}',
+                publish_date = '{$product['publish_date']}',
+                meta_keyword = '{$product['meta_keyword']}',
+                meta_description = '{$product['meta_description']}',
+                slide = '{$product['slide']}',
+                category_id = '{$product['category_id']}'
+                WHERE id = '$id'";
+        
+        $result = $this->update($sql);
+    
+        if ($result) {
+            return $product;
+        } else {
+            return false;
+        }
+    }    public function delete_product($id)
+    {
+        
+    
+        
+        $query = "DELETE FROM products WHERE id = '$id'";
+    
+      
+        // Execute the query
+        $this->delete($query);
+    
+        
+    }
 }

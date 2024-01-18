@@ -9,7 +9,6 @@ class ProductimagesModel extends Database
     {
  
        
-
         $path = mysqli_escape_string($this->link, $path);
         $productid = mysqli_escape_string($this->link, $productid);
 

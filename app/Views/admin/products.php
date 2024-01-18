@@ -188,11 +188,11 @@ require_once __DIR__ . '/inc/header.php';
                                                     href="<?php url('admin/productedit/'.$product['id'] )?>">Edit</a>
                                             </li>
 
-                                            <li><a class="dropdown-item" href="#">Remove tag</a></li>
+                                          
                                             <li>
                                                 <hr class="dropdown-divider" />
                                             </li>
-                                            <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                            <li><a class="dropdown-item text-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm  này?')" href="<?php url('admin/productdelete/'.$product['id'] )?>">Delete</a></li>
                                         </ul>
                                     </div>
                                 </td>

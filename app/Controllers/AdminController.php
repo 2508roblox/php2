@@ -67,6 +67,16 @@ class AdminController extends Controller
         # code...
         $this->view('admin/products-add');
     }
+    public function productdelete($id)
+    {
+        $this->model('product')->delete_product($id);
+
+        redirect('admin/products');
+
+
+
+        # code...
+    }
     public function categories()
     {
 
@@ -139,42 +149,56 @@ class AdminController extends Controller
             $this->view('admin/category-edit', ['category' => $category]);
         }
     }
-    public function productedit($id)
-    {
+        public function productedit($id)
+        {
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Form data has been submitted, process it
-            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-                $uploadDir = 'upload/';
-                $fileName = uniqid() . '_' . $_FILES['image']['name'];
-                $destination = $uploadDir . $fileName;
-                move_uploaded_file($_FILES['image']['tmp_name'], $destination);
-                $_POST['image'] = $destination;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $images = $_FILES['images'];
+                $result =  $this->model('product')->product_edit($_POST, $images, $id);
+
+                if ($result) {
+                    foreach ($images['name'] as $key => $name) {
+                        $tmp_name = $images['tmp_name'][$key];
+                        $error = $images['error'][$key];
+
+                        if ($error === UPLOAD_ERR_OK) {
+                            $uploadDir = 'upload/';
+                            $fileName = uniqid() . '_' . $name;
+                            $destination = $uploadDir . $fileName;
+
+                            if (move_uploaded_file($tmp_name, $destination)) {
+                                // File moved successfully, update the file path in the database
+                                $resultss = $this->model('productimages')->addImage($fileName, $id);
+                            } else {
+                                // Failed to move the file, handle the error
+                                echo "Error moving file: " . $name . "<br>";
+                                echo "<br>";
+                            }
+                        }
+                    }
+                    $message = 'Product edited successfully';
+
+                    redirect('admin/products');
+                    exit;
+                } else {
+                    // Log the result
+                    // Example:
+                    $message = 'Failed to edit category';
+                    $this->view('admin/category-add', ['message' => $message]);
+                }
+
+                $this->view('admin/products-add');
+            }else {
+
+                // Retrieve the product data for editing
+                $product = $this->model('product')->getProductById($id);
+                $categories =  $this->model('category')->getAll();
+                $images =  $this->model('productimages')->getImagesByProductId($id);
+                $this->view('admin/products-edit', ['product' => $product, 'categories' => $categories , 'images' => $images]);
+            
             }
-            // Process and save the form data as needed
-            $result =  $this->model('product')->edit($_POST, $id);
-            if ($result) {
-
-                $message = 'product created successfully';
-
-
-                redirect('admin/products');
-                exit;
-            } else {
-
-                $message = 'Failed to create product';
-                $this->view('admin/product-edit', ['message' => $message]);
-            }
-            // Redirect or display a success message
-            // Example: redirect to a success page
-        } else {
-            // Retrieve the product data for editing
-            $product = $this->model('product')->getProductById($id);
-        $categories =  $this->model('category')->getAll();
-        $images =  $this->model('productimages')->getImagesByProductId($id);
-            $this->view('admin/products-edit', ['product' => $product, 'categories' => $categories , 'images' => $images]);
         }
-    }
     public function product_image_delete($id)
     {
         $this->model('productimages')->delete_by_id($id);

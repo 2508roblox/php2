@@ -4,7 +4,7 @@ require_once __DIR__ . '/inc/header.php';
 ?>
 
 <div id="top" class="sa-app__body">
-    <form action="<?php url('admin/store_add_product') ?>" enctype="multipart/form-data" method="POST">
+    <form action="<?php url('admin/productedit/'. $data['product']['id']) ?>" enctype="multipart/form-data" method="POST">
 
         <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
             <div class="container">
@@ -52,7 +52,7 @@ require_once __DIR__ . '/inc/header.php';
                                         <h2 class="mb-0 fs-exact-18">Pricing</h2>
                                     </div>
                                     <div class="row g-4">
-                                        <div class="col"><label for="form-product/price" class="form-label">Giá khuyến mãi</label><input name="price" type="number" class="form-control" id="form-product/price" value="<?php echo $data['product']['promotion_price']?>" /></div>
+                                        <div class="col"><label for="form-product/price" class="form-label">Giá khuyến mãi</label><input name="promotion_price" type="number" class="form-control" id="form-product/price" value="<?php echo $data['product']['promotion_price']?>" /></div>
                                         <div class="col"><label for="form-product/old-price" class="form-label">Giá gốc
                                                  </label><input name="price" value="<?php echo $data['product']['price']?>" type="number" class="form-control" id="form-product/old-price" /></div>
                                     </div>
