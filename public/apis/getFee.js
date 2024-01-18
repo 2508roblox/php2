@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
             // Render phí vận chuyển
             const shippingCostElement = document.getElementById('shipping_cost');
+            const shippingCostInput = document.getElementById('shipping_cost_input');
+            shippingCostInput.value = shippingCost;
             shippingCostElement.textContent = formattedCost;
         })
         .catch(error => {

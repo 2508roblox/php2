@@ -27,6 +27,8 @@ require_once __DIR__ . '/inc/footer.php';
 		<div class="content-inner-1">
 			<div class="container">
 			<form id="cate_form" action="<?php url('admin/checkoutadd') ?>" enctype="multipart/form-data" method="POST">
+			<input type="hidden" name="user_id" value="<?php  echo $_SESSION['user']['id']?>">
+			<input type="hidden" name="discount" value="0">
 				<div class="row shop-checkout">
 					<div class="col-xl-8">
 						<h4 class="title m-b15">Chi tiết đơn hàng</h4>
@@ -54,13 +56,13 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="col-md-6">
 								<div class="form-group m-b25">
 									<label class="label-title">First Name</label>
-									<input name="dzName" required="" class="form-control">
+									<input name="firstname" required="" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group m-b25">
 									<label class="label-title">Last Name</label>
-									<input name="dzName" required="" class="form-control">
+									<input name="lastname" required="" class="form-control">
 								</div>
 							</div>
 							</div>
@@ -69,7 +71,7 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="m-b25">
 									<label class="label-title">Tỉnh thành</label>
 									<div class=" ">
-										<select class="  w-100" name="province" id="province_list">
+										<select class="  w-100" name="city" id="province_list">
 											 
 										</select>	
 									</div>
@@ -101,14 +103,14 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="col-md-12">
 								<div class="form-group m-b25">
 									<label class="label-title">Địa chỉ* </label>
-									<input name="dzName" required="" class="form-control m-b15" placeholder="House number and street name">
+									<input name="address" required="" class="form-control m-b15" placeholder="House number and street name">
 									</div>
 							</div>
 						 
 							<div class="col-md-12">
 								<div class="form-group m-b25">
 									<label class="label-title">Phone *</label>
-									<input name="dzName" required="" class="form-control">
+									<input name="phone" required="" class="form-control">
 								</div>
 							</div>
 							 
@@ -163,7 +165,7 @@ require_once __DIR__ . '/inc/footer.php';
 											  <label class="form-check-label" for="flexRadioDefault2">
 												Giao nhanh:
 											  </label>
-											  <input hidden type="radio" id="shipping_cost_input" name="shipping_cost" value="" id="flexRadioDefault2">
+											  <input hidden type="radio" id="shipping_cost_input" name="shipping_price" value="" id="flexRadioDefault2">
 
 											</div>
 										</td>
@@ -181,7 +183,7 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="accordion-item">
 									<div class="accordion-header" id="heading1">
 										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse1" role="navigation"  aria-expanded="true" aria-controls="collapse1">
-											<input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+											<input class="form-check-input radio" type="radio" name="payment_method" value="bank" id="flexRadioDefault3">
 											<label class="form-check-label" for="flexRadioDefault3">
 												Direct bank transfer
 											</label>
@@ -196,7 +198,7 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="accordion-item">
 									<div class="accordion-header" id="heading2">
 										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse2" role="navigation" aria-expanded="true" aria-controls="collapse2">
-											<input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+											<input class="form-check-input radio" type="radio" name="payment_method" value="cash" id="flexRadioDefault5">
 											<label class="form-check-label" for="flexRadioDefault5">
 												Cash on delivery
 											</label>
@@ -211,7 +213,7 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="accordion-item">
 									<div class="accordion-header" id="heading3">
 										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse3" role="navigation" aria-expanded="true" aria-controls="collapse3">
-											<input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+											<input class="form-check-input radio" type="radio" name="payment_method" value="paypal" id="flexRadioDefault4">
 											<label class="form-check-label" for="flexRadioDefault4">
 												Paypal
 											</label>
