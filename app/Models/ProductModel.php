@@ -20,7 +20,7 @@ class ProductModel extends Database
         $publish_date = $data['publish_date'];
         $meta_keyword = $data['meta_keyword'];
         $meta_description = $data['meta_description'];
-        $product_id = $data['product_id'];
+        $category_id = $data['category_id'];
         $slide = $data['slide'] ? 1 : 0;;
 
 
@@ -35,19 +35,19 @@ class ProductModel extends Database
         $feature = mysqli_escape_string($this->link, $feature);
         $status = mysqli_escape_string($this->link, $status);
         $publish_date = mysqli_escape_string($this->link, $publish_date);
+        $category_id = mysqli_escape_string($this->link, $category_id);
         $meta_keyword = mysqli_escape_string($this->link, $meta_keyword);
         $meta_description = mysqli_escape_string($this->link, $meta_description);
-        $product_id = mysqli_escape_string($this->link, $product_id);
 
 
 
         $sql = "INSERT INTO products 
         (name, slug, small_description, description, price, promotion_price, quantity,
-         feature, status, publish_date, meta_keyword, meta_description, product_id,slide)
+         feature, status, publish_date, meta_keyword, meta_description,slide,category_id)
         VALUES 
         ('$name', '$slug', '$small_description', '$description', '$price',
          '$promotion_price', '$quantity', '$feature', '$status', '$publish_date',
-         '$meta_keyword', '$meta_description', '$product_id', '$slide')";
+         '$meta_keyword', '$meta_description', '$slide', '$category_id')";
         $result = $this->insert($sql);
         if ($result) {
             // Get the ID of the inserted product
@@ -59,29 +59,37 @@ class ProductModel extends Database
     }
     public function getAllProducts()
     {
-        $sql = "SELECT p.*, c.name AS product_name, pi.image AS product_image
-                FROM products as p
-                JOIN categories  as c ON p.product_id = c.id
-                LEFT JOIN product_img as pi ON p.id = pi.product_id
-                GROUP BY p.id
-                ";
+        $sql = "SELECT p.*, c.name AS category_name, pi.image AS product_image
+            FROM products AS p
+            JOIN categories AS c ON p.category_id = c.id
+            LEFT JOIN product_img AS pi ON p.id = pi.product_id
+            GROUP BY p.id";
 
         $result = $this->select($sql);
-
-        if ($result !== false) {
-            return $result;
-        } else {
-            return false;
-        }
+        return $result;
     }
+    // public function getAllProducts()
+    // {
+    //     $sql = "SELECT *, c.name AS product_name, pi.image AS product_image
+    //             FROM products as p
+    //             JOIN categories  as c ON p.id = c.id
+    //             LEFT JOIN product_img as pi ON p.id = pi.product_id
+    //             GROUP BY p.id
+    //             ";
+
+    //     $result = $this->select($sql);
+    //     return $result;
+    // }
     public function getProductsBySlide()
     {
-        $sql = "SELECT p.*, c.name AS product_name, pi.image AS product_image
-            FROM products as p
-            JOIN categories  as c ON p.product_id = c.id
-            LEFT JOIN product_img as pi ON p.id = pi.product_id
-            WHERE p.slide = 1
-            GROUP BY p.id";
+        $sql = "SELECT p.*, c.name AS category_name, pi.image AS product_image
+        FROM products AS p
+        JOIN categories AS c ON p.category_id = c.id
+        LEFT JOIN product_img AS pi ON p.id = pi.product_id
+        WHERE p.slide = 1
+
+        GROUP BY p.id";
+
 
         $result = $this->select($sql);
 
@@ -95,7 +103,7 @@ class ProductModel extends Database
     {
         $sql = "SELECT p.*, c.name AS product_name, pi.image AS product_image
             FROM products AS p
-            JOIN categories AS c ON p.product_id = c.id
+            JOIN categories AS c ON p.category_id = c.id
             LEFT JOIN (
                 SELECT product_id, MIN(id) AS min_image_id, image
                 FROM product_img
@@ -116,7 +124,7 @@ class ProductModel extends Database
     {
         $sql = "SELECT p.*, c.name AS product_name 
             FROM products AS p
-            JOIN categories AS c ON p.product_id = c.id
+            JOIN categories AS c ON p.category_id = c.id
         
             WHERE p.id = $id
             ORDER BY p.publish_date DESC";
@@ -149,9 +157,9 @@ class ProductModel extends Database
     {
         $query = "SELECT * FROM products WHERE id = '$productId'";
         $result = $this->select($query); // Assuming $this->db is your mysqli connection object
-       
+
         $product = $result->fetch_assoc();
-        
+
         return $product;
     }
 }
