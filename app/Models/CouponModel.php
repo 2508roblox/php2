@@ -94,5 +94,12 @@ class CouponModel extends Database
             return false;
         }
     }
+   public function delete_coupon ($id) {
+    $query = "DELETE FROM coupons WHERE id = '$id'";
+
+  
+    // Execute the query
+    $this->delete($query);
+    }
  
 }

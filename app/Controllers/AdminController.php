@@ -238,4 +238,14 @@ class AdminController extends Controller
             $this->view('admin/coupon-edit', ['coupon' => $coupon]);
         }
     }
+    public function coupondelete($id)
+    {
+        $this->model('coupon')->delete_coupon($id);
+
+        redirect('admin/coupons');
+
+
+
+        # code...
+    }
 }

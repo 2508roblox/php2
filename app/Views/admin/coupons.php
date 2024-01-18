@@ -20,7 +20,7 @@ require_once __DIR__ . '/inc/header.php';
                         </nav>
                         <h1 class="h3 m-0">Coupons</h1>
                     </div>
-                    <div class="col-auto d-flex"><a href="app-coupon.html" class="btn btn-primary">New coupon</a></div>
+                    <div class="col-auto d-flex"><a href="<?php url('admin/couponadd')  ?>" class="btn btn-primary">Tạo mới</a></div>
                 </div>
             </div>
             <div class="card">
@@ -77,8 +77,8 @@ require_once __DIR__ . '/inc/header.php';
                                             </path>
                                         </svg></button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="coupon-context-menu-0">
-                                    <li><a class="dropdown-item" href="<?php url('admin/couponedit/'.$coupon['id'] )?>">Edit</a></li>
-                        <li><a class="dropdown-item" href="<?php url('admin/coupondelete/'.$coupon['id'] )?>">Remove </a></li>
+                                    <li><a class="dropdown-item" href="<?php url('admin/couponedit/'.$coupon['id'] )?>">Chỉnh sửa</a></li>
+                        <li><a  onclick="return confirm('Bạn có chắc chắn muốn xóa mã giảm giá này?')" class="dropdown-item" href="<?php url('admin/coupondelete/'.$coupon['id'] )?>">Xóa </a></li>
                                     </ul>
                                 </div>
                             </td>
