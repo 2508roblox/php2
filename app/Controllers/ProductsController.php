@@ -12,11 +12,10 @@ class ProductsController extends Controller
     }
     public function detail($product_id)
     {
-       
-            # code...
-            $this->view('frontend/product_detail');
-        
+
+        $productDetails =  $this->model('product')->getProductDetails($product_id);
+        $productImages =  $this->model('product')->getProductImages($product_id);
+        # code...
+        $this->view('frontend/product_detail', ['productDetails' => $productDetails, 'productImages' => $productImages]);
     }
-    
-   
 }

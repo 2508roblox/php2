@@ -200,13 +200,11 @@ class AdminController extends Controller
              $result = $this->model('coupon')->_create($_POST);
             if ($result) {
                 redirect('admin/coupons');
-            }
-            else {
+            } else {
                 flash('error', 'Something went wrong!');
                 $this->view('admin/coupon-add');
             }
-        }
-        else {
+        } else {
 
             # code...
             $this->view('admin/coupon-add');
