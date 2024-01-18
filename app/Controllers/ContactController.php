@@ -7,8 +7,14 @@ class ContactController extends Controller
 
     public function get()
     {
-        
-return $this->view('frontend/contact') ;
+        $carts = $this->model('cart')->getAllCarts();
+        $_SESSION['carts'] = $carts;
+        $_SESSION['cartsCount'] = $carts->num_rows ?? 0;
+
+        $wishlists =  $this->model('wishlist')->getAllWishlistsByUserId();
+        $_SESSION['wishlists'] = $wishlists;
+        $_SESSION['wishlistsCount'] = $wishlists->num_rows ?? 0;
+
+        return $this->view('frontend/contact');
     }
-   
 }
