@@ -3,7 +3,9 @@ require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
 ?>
-
+<script src="<?php assets('apis/getProvince.js')?>"  ></script>
+<script src="<?php assets('apis/getDistrict.js')?>"  ></script>
+<script src="<?php assets('apis/getWard.js')?>"  ></script>
 	
 	<div class="page-content">
 		<!--banner-->
@@ -58,26 +60,20 @@ require_once __DIR__ . '/inc/footer.php';
 							 
 							<div class="col-md-12">
 								<div class="m-b25">
-									<label class="label-title">Country / Region *</label>
-									<div class="form-select">
-										<select class="default-select w-100">
-											<option selected>Viet Nam</option>
-											<option value="1">Another option</option>
-											<option value="2">UK</option>
-											<option value="3">Iraq</option>
+									<label class="label-title">Tỉnh thành</label>
+									<div class=" ">
+										<select class="  w-100" name="province" id="province_list">
+											 
 										</select>	
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="form-group m-b25">
-									<label class="label-title">Street address * </label>
-									<input name="dzName" required="" class="form-control m-b15" placeholder="House number and street name">
-									</div>
-							</div>
+						<script>
+		
+						</script>
 							<div class="col-md-12">
 								<div class="m-b25">
-									<label class="label-title">Town / City *</label>
+									<label class="label-title">Quận huyện*</label>
 									<div class="form-select">
 										<select class="default-select w-100">
 											<option selected>Kota</option>
@@ -88,13 +84,26 @@ require_once __DIR__ . '/inc/footer.php';
 									</div>
 								</div>
 							</div>
-							 
 							<div class="col-md-12">
-								<div class="form-group m-b25">
-									<label class="label-title">ZIP Code *</label>
-									<input name="dzName" required="" class="form-control">
+								<div class="m-b25">
+									<label class="label-title">Phường*</label>
+									<div class="form-select">
+										<select class="default-select w-100">
+											<option selected>Kota</option>
+											<option value="1">Another option</option>
+											<option value="2">Jaipur</option>
+											<option value="3">Udaipur</option>
+										</select>	
+									</div>
 								</div>
 							</div>
+							<div class="col-md-12">
+								<div class="form-group m-b25">
+									<label class="label-title">Địa chỉ* </label>
+									<input name="dzName" required="" class="form-control m-b15" placeholder="House number and street name">
+									</div>
+							</div>
+						 
 							<div class="col-md-12">
 								<div class="form-group m-b25">
 									<label class="label-title">Phone *</label>
