@@ -11,8 +11,8 @@ class ProductsController extends Controller
         $this->view('frontend/products');
     }
     public function detail($product_id)
-    {
 
+    {
         $productDetails =  $this->model('product')->getProductDetails($product_id);
         $productImages =  $this->model('product')->getProductImages($product_id);
         # code...
