@@ -57,13 +57,13 @@ require_once __DIR__ . '/inc/footer.php';
 ">
 							<div class="col-md-6">
 								<div class="form-group m-b25">
-									<label class="label-title">First Name</label>
+									<label class="label-title">Tên</label>
 									<input name="firstname" required="" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group m-b25">
-									<label class="label-title">Last Name</label>
+									<label class="label-title">Họ</label>
 									<input name="lastname" required="" class="form-control">
 								</div>
 							</div>
@@ -111,7 +111,7 @@ require_once __DIR__ . '/inc/footer.php';
 
 						<div class="col-md-12">
 							<div class="form-group m-b25">
-								<label class="label-title">Phone *</label>
+								<label class="label-title">Số điện thoại *</label>
 								<input name="phone" required="" class="form-control">
 							</div>
 						</div>
@@ -119,13 +119,13 @@ require_once __DIR__ . '/inc/footer.php';
 
 						<div class="col-md-12 m-b25">
 							<div class="form-group">
-								<label class="label-title">Order notes (optional)</label>
+								<label class="label-title">Ghi chú (optional)</label>
 								<textarea id="comments" placeholder="Notes about your order, e.g. special notes for delivery." class="form-control" name="comment" cols="90" rows="5" required="required"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="col-xl-4 side-bar">
-						<h4 class="title m-b15">Your Order</h4>
+						<h4 class="title m-b15">Chi tiết đơn hàng</h4>
 						<div class="order-detail sticky-top">
 							<?php
 							 $subtotal  =  0;

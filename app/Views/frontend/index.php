@@ -1,4 +1,7 @@
 <?php
+use App\Helpers\Format;
+ 
+ 
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
@@ -30,12 +33,14 @@ require_once __DIR__ . '/inc/footer.php';
                                                         <h1 class="title mb-2" data-swiper-parallax="-20">
                                                             <?php echo $slide['name']; ?></h1>
                                                         <p class="text mb-0" data-swiper-parallax="-40">
-                                                            <?php echo $slide['small_description']; ?></p>
+                                                            <?php echo $slide['description']; ?></p>
 
                                                         <div class="swiper-meta-items" data-swiper-parallax="-50">
                                                             <div class="meta-content">
                                                                 <span class="price-name">Price</span>
-                                                                <span class="price-num">$<?php echo $slide['promotion_price']; ?>.00</span>
+                                                                <span class="price-num">
+                                                                <?php Format::currency(  $slide['promotion_price'])?>      
+                        </span>
                                                             </div>
 
                                                         </div>
@@ -176,7 +181,12 @@ require_once __DIR__ . '/inc/footer.php';
                                 <li class="card-container col-6 col-xl-3 col-lg-3 col-md-4 col-sm-6 Bottle wow fadeInUp" data-wow-delay="0.2s">
                                     <div class="shop-card">
                                         <div class="dz-media">
-                                            <img src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo isset($latestProduct['product_image']) && $latestProduct['product_image'] !== '' ? $latestProduct['product_image'] : 'empty-img.png'; ?>" alt="image">
+                                            <img
+                                            style="
+    height: 300px;
+    object-fit: contain;
+"
+                                            src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo isset($latestProduct['product_image']) && $latestProduct['product_image'] !== '' ? $latestProduct['product_image'] : 'empty-img.png'; ?>" alt="image">
                                             <div class="shop-meta">
                                                 <a href="javascript:void(0);" class="btn btn-secondary btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <i class="fa-solid fa-eye d-md-none d-block"></i>
@@ -238,8 +248,8 @@ require_once __DIR__ . '/inc/footer.php';
                                                 </li>
                                             </ul>
                                             <h6 class="price">
-                                                <del>$<?php echo $latestProduct['price']  ?>.00</del>
-                                                $<?php echo $latestProduct['promotion_price']  ?>.00
+                                                <?php Format::currency( $latestProduct['promotion_price'])?>   
+                                                <del> <?php Format::currency( $latestProduct['price'])?>   </del>
                                             </h6>
                                         </div>
                                         <div class="product-tag">

@@ -1,4 +1,6 @@
 <?php
+use App\Helpers\Format;
+
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
@@ -105,13 +107,15 @@ require_once __DIR__ . '/inc/footer.php';
                                                 </div>
                                             </div>
                                             <p class="para-text">
-                                                <?php echo $productDetail['small_description']; ?>
+                                                <?php echo $productDetail['description']; ?>
                                             </p>
                                             <div class="meta-content m-b20 d-flex align-items-end">
                                                 <div class="me-3">
                                                     <span class="price-name">Price</span>
-                                                    <span class="price-num">$<?php echo $productDetail['promotion_price']; ?>
-                                                        <del>$<?php echo $productDetail['price']; ?></del></span>
+                                                    <span class="price-num">
+                                                        
+                                                    <?php Format::currency( $productDetail['promotion_price'])?>   
+                                                        <del> <?php Format::currency( $productDetail['price'])?>   </del></span>
                                                 </div>
                                                 <div class="btn-quantity quantity-sm light d-xl-none d-blcok d-sm-block">
                                                     <label class="form-label">Quantity</label>
@@ -212,7 +216,7 @@ require_once __DIR__ . '/inc/footer.php';
                                                         <h6 class="mb-0">Total</h6>
                                                     </td>
                                                     <td class="price">
-                                                        $125.75
+                                                    <?php Format::currency( $productDetail['promotion_price'])?>   
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -839,6 +843,8 @@ require_once __DIR__ . '/inc/footer.php';
     </div>
 
 <?php endforeach; ?>
+
+use App\Helpers\Format;
 
 <!-- Footer -->
 <footer class="site-footer style-1">

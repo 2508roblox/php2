@@ -1,4 +1,7 @@
 <?php
+
+use App\Helpers\Format;
+ 
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
@@ -223,7 +226,12 @@ require_once __DIR__ . '/inc/footer.php';
                                     <div class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-4 m-md-b15 m-sm-b0 m-b30">
                                         <div class="shop-card">
                                             <div class="dz-media">
-                                                <img src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $product['product_image']  ?>"
+                                                <img
+                                                style="
+    height: 300px;
+    object-fit: contain;
+"
+                                                src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $product['product_image']  ?>"
                                                     alt="image">
                                                 <div class="shop-meta">
                                                     <a href="javascript:void(0);" class="btn btn-secondary btn-icon"
@@ -321,8 +329,10 @@ require_once __DIR__ . '/inc/footer.php';
                                                     </li>
                                                 </ul>
                                                 <h6 class="price">
-                                                    <del>$<?php echo $product['price']  ?>.00</del>
-                                                    $<?php echo $product['promotion_price']  ?>.00
+                                                    <del>
+      
+                                                    <?php Format::currency( $product['price'])?>   </del>
+                                                    <?php Format::currency( $product['promotion_price'])?>   
                                                 </h6>
                                             </div>
                                             <div class="product-tag">

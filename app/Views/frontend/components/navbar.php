@@ -1,3 +1,8 @@
+ <?php 
+ use App\Helpers\Format;
+ 
+ 
+ ?>
  <header class="site-header mo-left header border-bottom">
      <!-- Main Header -->
      <div class="sticky-header main-bar-wraper navbar-expand-lg">
@@ -358,7 +363,8 @@
                                                              name="demo_vertical2">
                                                      </div>
                                                      <h6 class="dz-price text-primary mb-0">
-                                                         $<?php echo $cart['promotion_price']; ?>.00</h6>
+                                                     <?php Format::currency( $cart['promotion_price'])?>   
+                                              </h6>
                                                  </div>
                                              </div>
                                              <a href="<?php echo url('cart/delete/' . $cart['id']); ?>"
@@ -376,7 +382,9 @@
                                  </ul>
                                  <div class="cart-total">
                                      <h5 class="mb-0">Subtotal:</h5>
-                                     <h5 class="mb-0"><?php echo $subtotal ?>.00$</h5>
+                                     <h5 class="mb-0"> 
+                                     <?php Format::currency( $subtotal)?>   
+                                    </h5>
                                  </div>
                                  <div class="mt-auto">
                                      <div class="shipping-time">
@@ -420,7 +428,8 @@
                                                  </h6>
                                                  <div class="d-flex align-items-center">
                                                      <h6 class="dz-price text-primary mb-0">
-                                                         $<?php echo $wishlist['promotion_price']; ?>.00</h6>
+                                                     <?php Format::currency( $wishlist['promotion_price'])?>   
+                                                         </h6>
                                                  </div>
                                              </div>
                                              <a href="<?php echo url('wishlist/delete/' . $wishlist['id']); ?>"

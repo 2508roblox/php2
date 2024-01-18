@@ -144,6 +144,7 @@ require_once __DIR__ . '/inc/header.php';
                                     <div class="d-flex align-items-center">
                                         <a href="app-product.html" class="me-4">
                                             <div class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg"><img
+                                            
                                                     src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $product['product_image']  ?>"
                                                     width="40" height="40" alt="" /></div>
                                         </a>

@@ -1,4 +1,6 @@
 <?php
+use App\Helpers\Format;
+
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
@@ -33,11 +35,11 @@ require_once __DIR__ . '/inc/footer.php';
                         <table class="table check-tbl">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
+                                    <th>Sản phẩm</th>
                                     <th></th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Subtotal</th>
+                                    <th>Giá </th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng cộng   </th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -53,8 +55,12 @@ require_once __DIR__ . '/inc/footer.php';
                                     <td class="product-item-img"><img
                                             src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $cart['product_image']  ?>"
                                             alt="/"></td>
-                                    <td class="product-item-name"><?php echo $cart['product_name']; ?></td>
-                                    <td class="product-item-price"><?php echo $cart['promotion_price']; ?>đ</td>
+                                    <td class="product-item-name"><?php echo $cart['product_name']; ?>
+                            
+                                </td>
+                                    <td class="product-item-price"> 
+                                 <?php Format::currency( $cart['promotion_price'])?>   
+                                </td>
                                     <td class="product-item-quantity">
                                         <div class="quantity btn-quantity style-1 me-3">
                                             <input type="text" value="<?php echo $cart['quantity']; ?>"
@@ -62,7 +68,8 @@ require_once __DIR__ . '/inc/footer.php';
                                         </div>
                                     </td>
                                     <td class="product-item-totle">
-                                        <?php echo ($cart['promotion_price'] * $cart['quantity']); ?> đ</td>
+                                    <?php Format::currency( $cart['promotion_price'] * $cart['quantity'])?>   
+                                       </td>
                                     <td class="product-item-close"><a
                                             href="<?php echo url('cart/delete/' . $cart['id']); ?>"><i
                                                 class="ti-close"></i></a></td>
@@ -129,7 +136,7 @@ require_once __DIR__ . '/inc/footer.php';
                             </div>
                         </div>
                         <div class="col-md-6 text-end">
-                            <a onclick="postData()" class="btn btn-grey">UPDATE CART</a>
+                            <a onclick="postData()" class="btn btn-grey">Cập nhập giỏ hàng</a>
                         </div>
                     </div>
                 </div>
@@ -168,7 +175,8 @@ require_once __DIR__ . '/inc/footer.php';
                                         <h6 class="mb-0">Total</h6>
                                     </td>
                                     <td class="price">
-                                        <?php echo $subtotal ?> đ
+                            
+                                        <?php Format::currency( $subtotal)?>   
                                     </td>
                                 </tr>
                             </tbody>
