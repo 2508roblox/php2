@@ -48,4 +48,36 @@ user_id)
             return false;
         }
     }
+    public function deleteCart($cart_id)
+    {
+        $cart_id = mysqli_real_escape_string($this->link, $cart_id);
+        $user_id = mysqli_real_escape_string($this->link, $_SESSION['user']['id']);
+
+        $sql = "DELETE FROM cart
+                WHERE id = '$cart_id' AND user_id = '$user_id'";
+        $result = $this->delete($sql);
+
+        if ($result) {
+            return true; // Xóa thành công
+        } else {
+            return false; // Xóa thất bại
+        }
+    }
+    public function updateCart($cart_id, $cart_quantity)
+    {
+        $cart_id = mysqli_real_escape_string($this->link, $cart_id);
+        $cart_quantity = mysqli_real_escape_string($this->link, $cart_quantity);
+        $user_id = mysqli_real_escape_string($this->link, $_SESSION['user']['id']);
+
+        $sql = "UPDATE cart
+                SET quantity = '$cart_quantity'
+                WHERE id = '$cart_id' AND user_id = '$user_id'";
+        $result = $this->update($sql);
+
+        if ($result) {
+            return true; // Cập nhật thành công
+        } else {
+            return false; // Cập nhật thất bại
+        }
+    }
 }
