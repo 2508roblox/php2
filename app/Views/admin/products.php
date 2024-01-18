@@ -138,9 +138,8 @@ require_once __DIR__ . '/inc/header.php';
                                                         </path>
                                                     </svg></button>
                                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="product-context-menu-0">
-                                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#">Duplicate</a></li>
-                                                    <li><a class="dropdown-item" href="#">Add tag</a></li>
+                                                    <li><a class="dropdown-item" href="<?php url('admin/productedit/'.$product['id'] )?>">Edit</a></li>
+                                             
                                                     <li><a class="dropdown-item" href="#">Remove tag</a></li>
                                                     <li>
                                                         <hr class="dropdown-divider" />

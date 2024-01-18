@@ -12,6 +12,7 @@ include_once __DIR__ . "/../app/Configs/database.php";
 include "../app/Helpers/redirect.php";
 include "../app/Helpers/url.php";
 include "../app/Helpers/assets.php";
+include "../app/Helpers/dd.php";
 include "../app/Helpers/flash_session.php";
 $core = Session::init();
 $core = new Core();

@@ -7,7 +7,7 @@ class AdminController extends Controller
 
     public function get()
     {
-
+        
         return $this->view('admin/index');
     }
     public function products()
@@ -137,6 +137,40 @@ class AdminController extends Controller
             // Retrieve the category data for editing
             $category = $this->model('category')->getCategoryById($id);
             $this->view('admin/category-edit', ['category' => $category]);
+        }
+    }
+    public function productedit($id)
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Form data has been submitted, process it
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'upload/';
+                $fileName = uniqid() . '_' . $_FILES['image']['name'];
+                $destination = $uploadDir . $fileName;
+                move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+                $_POST['image'] = $destination;
+            }
+            // Process and save the form data as needed
+            $result =  $this->model('product')->edit($_POST, $id);
+            if ($result) {
+
+                $message = 'product created successfully';
+
+
+                redirect('admin/products');
+                exit;
+            } else {
+
+                $message = 'Failed to create product';
+                $this->view('admin/product-edit', ['message' => $message]);
+            }
+            // Redirect or display a success message
+            // Example: redirect to a success page
+        } else {
+            // Retrieve the product data for editing
+            $product = $this->model('product')->getProductById($id);
+            $this->view('admin/products-edit', ['product' => $product]);
         }
     }
     public function categorydelete($id)
