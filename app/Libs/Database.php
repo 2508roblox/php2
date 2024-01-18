@@ -34,7 +34,10 @@ class Database
             return false;
         }
     }
-
+    public function getLastInsertedID()
+    {
+        return $this->link->insert_id;
+    }
     // Select or Read data
     public function select($query)
     {

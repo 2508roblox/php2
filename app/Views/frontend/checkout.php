@@ -1,4 +1,6 @@
 <?php
+
+use App\Helpers\Format;
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
@@ -6,7 +8,7 @@ require_once __DIR__ . '/inc/footer.php';
 <script src="<?php assets('apis/getProvince.js') ?>"></script>
 <script src="<?php assets('apis/getDistrict.js') ?>"></script>
 <script src="<?php assets('apis/getWard.js') ?>"></script>
-<script src="<?php assets('apis/getFee.js') ?>"></script>
+<script src="<?php assets('apis/getFee.js') ?>" defer></script>
 
 <div class="page-content">
 	<!--banner-->
@@ -26,7 +28,7 @@ require_once __DIR__ . '/inc/footer.php';
 	<!-- inner page banner End-->
 	<div class="content-inner-1">
 		<div class="container">
-			<form id="cate_form" action="<?php url('admin/checkoutadd') ?>" enctype="multipart/form-data" method="POST">
+			<form id="cate_form" action="<?php url('checkout') ?>" enctype="multipart/form-data" method="POST">
 				<input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['id'] ?>">
 				<input type="hidden" name="discount" value="0">
 				<div class="row shop-checkout">
@@ -138,7 +140,7 @@ require_once __DIR__ . '/inc/footer.php';
 										<div class="dz-content">
 											<h6 class="title mb-0"><?php echo $cart['product_name'] ?> x <?php echo $cart['quantity']?></h6>
 											<span class="price">
-											<?php echo $cart['quantity'] *  $cart['promotion_price']?>đ
+										  <?php Format::currency( $cart['quantity'] *  $cart['promotion_price'])?> 
 
 											</span>
 										</div>
@@ -150,12 +152,13 @@ require_once __DIR__ . '/inc/footer.php';
 								</li>
 							<?php endif; ?>
 
+							<input type="hidden" id="total_amount" name="total_amount" value="">
 
 							<table>
 								<tbody>
 									<tr class="subtotal" >
 										<td>Subtotal</td>
-										<td class="price" id="subtotal_text"><?php echo $subtotal?>đ</td>
+										<td class="price" id="subtotal_text"><?php Format::currency($subtotal)?></td>
 									</tr>
 									<tr class="title">
 										<td>
@@ -175,7 +178,7 @@ require_once __DIR__ . '/inc/footer.php';
 												<label class="form-check-label" for="flexRadioDefault2">
 													Giao nhanh:
 												</label>
-												<input hidden type="radio" id="shipping_cost_input" name="shipping_price" value="" id="flexRadioDefault2">
+												<input hidden type="text" id="shipping_cost_input" name="shipping_price" value="" id="flexRadioDefault2">
 
 											</div>
 										</td>
@@ -183,7 +186,7 @@ require_once __DIR__ . '/inc/footer.php';
 									</tr>
 									<tr class="total">
 										<td>Total</td>
-										<td class="price">$125.75</td>
+										<td class="price" id="total_price_text"><?php Format::currency( $subtotal   )?> </td>
 
 									</tr>
 								</tbody>
@@ -208,7 +211,7 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="accordion-item">
 									<div class="accordion-header" id="heading2">
 										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse2" role="navigation" aria-expanded="true" aria-controls="collapse2">
-											<input class="form-check-input radio" type="radio" name="payment_method" value="cash" id="flexRadioDefault5">
+											<input class="form-check-input radio" checked type="radio" name="payment_method" value="cash" id="flexRadioDefault5">
 											<label class="form-check-label" for="flexRadioDefault5">
 												Cash on delivery
 											</label>
@@ -245,7 +248,7 @@ require_once __DIR__ . '/inc/footer.php';
 									<label class="form-check-label" for="basic_checkbox_3">I have read and agree to the website terms and conditions </label>
 								</div>
 							</div>
-							<a href="<?php url('checkout') ?>" class="btn btn-secondary w-100">PLACE ORDER</a>
+							<button type="submit" class="btn btn-secondary w-100">PLACE ORDER</button>
 						</div>
 					</div>
 				</div>

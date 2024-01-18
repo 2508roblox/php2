@@ -35,15 +35,25 @@ document.addEventListener('DOMContentLoaded', function() {
       })
         .then(response => response.json())
         .then(feeData => {
-            loadingOverlay.classList.remove('loading_show_1');
-            const shippingCost = feeData.data.total;
-            const formattedCost = shippingCost.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-    
-            // Render phí vận chuyển
-            const shippingCostElement = document.getElementById('shipping_cost');
-            const shippingCostInput = document.getElementById('shipping_cost_input');
-            shippingCostInput.value = shippingCost;
-            shippingCostElement.textContent = formattedCost;
+          console.log(feeData)
+          loadingOverlay.classList.remove('loading_show_1');
+          const shippingCost = feeData.data.total;
+          const formattedCost = shippingCost.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+          
+          // Render phí vận chuyển
+          const shippingCostElement = document.getElementById('shipping_cost');
+          const shippingCostInput = document.getElementById('shipping_cost_input');
+          const total_price_text = document.getElementById('total_price_text');
+          const total_price_input = document.getElementById('total_amount');
+ 
+          shippingCostInput.value = shippingCost;
+          shippingCostElement.textContent = formattedCost;
+          
+          total_price_input.value = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10) + shippingCost
+          const totalPriceValue = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10);
+          const totalPriceWithShipping = totalPriceValue + shippingCost;
+          total_price_text.textContent = totalPriceWithShipping.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+          
         })
         .catch(error => {
           console.error('Error:', error);

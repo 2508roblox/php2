@@ -63,6 +63,21 @@ user_id)
             return false; // Xóa thất bại
         }
     }
+    public function deleteAllByUserId()
+    {
+        $userId = mysqli_real_escape_string($this->link, $_SESSION['user']['id']);
+     
+
+        $sql = "DELETE FROM cart
+                WHERE user_id = '$userId'  ";
+        $result = $this->delete($sql);
+
+        if ($result) {
+            return true; // Xóa thành công
+        } else {
+            return false; // Xóa thất bại
+        }
+    }
     public function updateCart($cart_id, $cart_quantity)
     {
         $cart_id = mysqli_real_escape_string($this->link, $cart_id);

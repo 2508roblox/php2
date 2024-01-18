@@ -16,7 +16,7 @@ class Controller
     }
     public function model($model)
     {
-        $exit_model = array('brand', 'wishlist', 'coupon', 'productimages', 'user', 'shop', 'auth', 'admin', 'cart', 'category', 'contact', 'customer', 'orderdetail', 'orders', 'product', 'slide');
+        $exit_model = array('brand', 'wishlist', 'coupon', 'productimages','orderitem' ,'user', 'shop', 'auth', 'admin', 'cart', 'category', 'contact', 'customer', 'order', 'orderdetail', 'orders', 'product', 'slide');
 
         // model first name ex: product
         if (in_array($model, $exit_model)) {

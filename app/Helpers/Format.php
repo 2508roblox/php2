@@ -22,8 +22,10 @@ class Format
     }
     public static function currency($number)
     {
-        $formattedNumber = number_format($number);
-        echo $formattedNumber;
+      
+$formattedSubtotal = number_format($number, 0, '', '.') . ' ₫';
+
+echo $formattedSubtotal;
     }
 
     public function validation($data)

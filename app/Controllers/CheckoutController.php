@@ -6,7 +6,27 @@ class CheckoutController extends Controller
 {
 
     public function get()
-    {   $carts = $this->model('cart')->getAllCarts();
+    {   
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+            //create order
+          $latestId =  $this->model('order')->create_order($_POST);
+            //create order items
+            $result = $this->model('cart')->getAllCarts();
+            $carts = [];
+        
+            if ($result) {
+                while ($row = $result->fetch_assoc()) {
+                    $carts[] = $row;
+                }
+            }
+            $this->model('orderdetail')->create_order_detail($carts, $latestId );
+               //delete cart , session
+               $this->model('cart')->deleteAllByUserId();
+
+            // return  $result ?   dd($_POST) : 'error';
+        }
+        $carts = $this->model('cart')->getAllCarts();
         $_SESSION['carts'] = $carts;
         $_SESSION['cartsCount'] = $carts->num_rows ?? 0;
 
