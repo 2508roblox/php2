@@ -11,11 +11,11 @@ require_once __DIR__ . '/inc/footer.php';
         style="background-image:url(<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/background/bg-shape.jpg);">
         <div class="container">
             <div class="dz-bnr-inr-entry">
-                <h1>Cart</h1>
+                <h1>Giỏ hàng</h1>
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php url('') ?>"> Home</a></li>
-                        <li class="breadcrumb-item">Cart</li>
+                        <li class="breadcrumb-item">Giỏ hàng</li>
                     </ul>
                 </nav>
             </div>
@@ -54,7 +54,7 @@ require_once __DIR__ . '/inc/footer.php';
                                             src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $cart['product_image']  ?>"
                                             alt="/"></td>
                                     <td class="product-item-name"><?php echo $cart['product_name']; ?></td>
-                                    <td class="product-item-price">$<?php echo $cart['promotion_price']; ?>.00</td>
+                                    <td class="product-item-price"><?php echo $cart['promotion_price']; ?>đ</td>
                                     <td class="product-item-quantity">
                                         <div class="quantity btn-quantity style-1 me-3">
                                             <input type="text" value="<?php echo $cart['quantity']; ?>"
@@ -62,7 +62,7 @@ require_once __DIR__ . '/inc/footer.php';
                                         </div>
                                     </td>
                                     <td class="product-item-totle">
-                                        $<?php echo ($cart['promotion_price'] * $cart['quantity']); ?>.00</td>
+                                        <?php echo ($cart['promotion_price'] * $cart['quantity']); ?> đ</td>
                                     <td class="product-item-close"><a
                                             href="<?php echo url('cart/delete/' . $cart['id']); ?>"><i
                                                 class="ti-close"></i></a></td>
@@ -134,7 +134,7 @@ require_once __DIR__ . '/inc/footer.php';
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <h4 class="title mb15">Cart Total</h4>
+                    <h4 class="title mb15">Tổng giỏ hàng</h4>
                     <div class="cart-detail">
                         <a href="javascript:void(0);" class="btn btn-outline-primary w-100 m-b20">Bank Offer 5%
                             Cashback</a>
@@ -168,7 +168,7 @@ require_once __DIR__ . '/inc/footer.php';
                                         <h6 class="mb-0">Total</h6>
                                     </td>
                                     <td class="price">
-                                        $<?php echo $subtotal ?>.00
+                                        <?php echo $subtotal ?> đ
                                     </td>
                                 </tr>
                             </tbody>
