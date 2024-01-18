@@ -7,7 +7,7 @@ class AdminController extends Controller
 
     public function get()
     {
-        
+
         return $this->view('admin/index');
     }
     public function products()
@@ -231,7 +231,7 @@ class AdminController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             print_r($_POST);
-             $result = $this->model('coupon')->_create($_POST);
+            $result = $this->model('coupon')->_create($_POST);
             if ($result) {
                 redirect('admin/coupons');
             } else {
@@ -248,7 +248,7 @@ class AdminController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Form data has been submitted, process it
-           
+
             // Process and save the form data as needed
             $result =  $this->model('coupon')->edit($_POST, $id);
             if ($result) {
