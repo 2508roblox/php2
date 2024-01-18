@@ -41,7 +41,9 @@ require_once __DIR__ . '/inc/header.php';
                                     <div class="mb-4"><label for="form-product/description" class="form-label">Description</label><textarea id="form-product/description" name="description" class="sa-quill-control form-control" rows="8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.</textarea>
                                     </div>
                                     <div><label for="form-product/short-description" class="form-label">Short
-                                            description</label><textarea name="small_description" id="form-product/short-description" class="form-control" rows="2"></textarea></div>
+                                            description</label><textarea name="small_description" id="form-product/short-description" class="form-control" rows="2"><?php echo $data['product']['small_description'] ?>
+                                            
+                                            </textarea></div>
                                 </div>
                             </div>
                             <div class="card mt-5">
@@ -99,19 +101,24 @@ require_once __DIR__ . '/inc/header.php';
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                            <img src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-16-1-40x40.jpg" width="40" height="40" alt="" />
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="text" class="form-control form-control-sm" /></td>
-                                                    <td><input type="number" class="form-control form-control-sm w-4x" value="0" /></td>
-                                                    <td><button class="btn btn-sa-muted btn-sm mx-n3" type="button" aria-label="Delete image" data-bs-toggle="tooltip" data-bs-placement="right" title="Delete image"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                                                <path d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                                </path>
-                                                            </svg></button></td>
-                                                </tr>
+                                            <?php foreach ($data['images'] as $image): ?>
+    <tr>
+        <td>
+            <div class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
+                <img src="<?php echo ASSETS_URL_ROOT . '/upload/' .$image['image'] ?> " width="40" height="40" alt="" />
+            </div>
+        </td>
+        <td><input type="text" class="form-control form-control-sm" /></td>
+        <td><input type="number" class="form-control form-control-sm w-4x" value="0" /></td>
+        <td>
+            <a href="<?php url('admin/product_image_delete/'. $image['id'])?>" class="btn btn-sa-muted btn-sm mx-n3" type="button" aria-label="Delete image" data-bs-toggle="tooltip" data-bs-placement="right" title="Delete image">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                    <path d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z"></path>
+                </svg>
+            </a>
+        </td>
+    </tr>
+<?php endforeach; ?>
                                                 <!-- #region -->
                                             </tbody>
                                         </table>
@@ -168,7 +175,7 @@ require_once __DIR__ . '/inc/header.php';
                                         <h2 class="mb-0 fs-exact-18">Categories</h2>
                                     </div> <select name="category_id" class="sa-select2 form-select">
                                         <?php foreach ($data['categories'] as $category) : ?>
-                                            <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?>
+                                            <option <?php  echo $data['product']['category_id'] = $category['id'] ? 'selected' :''?> value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>

@@ -170,8 +170,22 @@ class AdminController extends Controller
         } else {
             // Retrieve the product data for editing
             $product = $this->model('product')->getProductById($id);
-            $this->view('admin/products-edit', ['product' => $product]);
+        $categories =  $this->model('category')->getAll();
+        $images =  $this->model('productimages')->getImagesByProductId($id);
+            $this->view('admin/products-edit', ['product' => $product, 'categories' => $categories , 'images' => $images]);
         }
+    }
+    public function product_image_delete($id)
+    {
+        $this->model('productimages')->delete_by_id($id);
+
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
+    
+
+
+
+        # code...
     }
     public function categorydelete($id)
     {
