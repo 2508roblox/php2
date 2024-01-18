@@ -65,8 +65,8 @@ require_once __DIR__ . '/inc/header.php';
                                     ?>
                                 </div>
                             </td>
-                            <td><?php echo strtoupper($coupon['publish_date']) ?></td>
-                            <td>2021-01-10 00:00</td>
+                            <td><?php echo strtoupper($coupon['created_at']) ?></td>
+                            <td><?php echo strtoupper($coupon['expires_at']) ?></td>
                             <td>
                                 <div class="dropdown"><button class="btn btn-sa-muted btn-sm" type="button"
                                         id="coupon-context-menu-0" data-bs-toggle="dropdown" aria-expanded="false"
@@ -77,14 +77,8 @@ require_once __DIR__ . '/inc/header.php';
                                             </path>
                                         </svg></button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="coupon-context-menu-0">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Duplicate</a></li>
-                                        <li><a class="dropdown-item" href="#">Add tag</a></li>
-                                        <li><a class="dropdown-item" href="#">Remove tag</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider" />
-                                        </li>
-                                        <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="<?php url('admin/couponedit/'.$coupon['id'] )?>">Edit</a></li>
+                        <li><a class="dropdown-item" href="<?php url('admin/coupondelete/'.$coupon['id'] )?>">Remove </a></li>
                                     </ul>
                                 </div>
                             </td>

@@ -198,18 +198,46 @@ class AdminController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             print_r($_POST);
              $result = $this->model('coupon')->_create($_POST);
-            // if ($result) {
-            //     redirect('admin/coupons');
-            // }
-            // else {
-            //     flash('error', 'Something went wrong!');
-            //     $this->view('admin/coupon-add');
-            // }
+            if ($result) {
+                redirect('admin/coupons');
+            }
+            else {
+                flash('error', 'Something went wrong!');
+                $this->view('admin/coupon-add');
+            }
         }
         else {
 
             # code...
             $this->view('admin/coupon-add');
+        }
+    }
+    public function couponedit($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Form data has been submitted, process it
+           
+            // Process and save the form data as needed
+            $result =  $this->model('coupon')->edit($_POST, $id);
+            if ($result) {
+
+                $message = 'Coupon created successfully';
+
+
+                redirect('admin/coupons');
+                exit;
+            } else {
+                $coupon = $this->model('coupon')->getCouponById($id);
+
+                $message = 'Failed to edit conpon';
+                $this->view('admin/coupon-edit', ['message' => $message]);
+            }
+            // Redirect or display a success message
+            // Example: redirect to a success page
+        } else {
+            // Retrieve the category data for editing
+            $coupon = $this->model('coupon')->getCouponById($id);
+            $this->view('admin/coupon-edit', ['coupon' => $coupon]);
         }
     }
 }

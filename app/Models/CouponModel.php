@@ -56,5 +56,43 @@ class CouponModel extends Database
         return false;
     }
     }
+    public function getCouponById($couponId)
+    {
+        $query = "SELECT * FROM coupons WHERE id = '$couponId'";
+        $result = $this->select($query); // Assuming $this->db is your mysqli connection object
+       
+        $coupon = $result->fetch_assoc();
+        
+        return $coupon;
+    }
+    public function edit($data , $id)
+    {
+        // Validate the required fields
+        if (  empty($id)  ) {
+            return false;
+        }
+    
+        // Extract the data fields
+        $code = $data['code'];
+        $is_active = $data['is_active'] ?? 0;
+        $discount = $data['discount'] ?? null;
+        $usage_limit = $data['usage_limit'] ?? null;
+        $expires_at = Format::formatDate($data['expires_at']); ;
+    
+        // Additional validation or manipulation of the data can be performed here
+    
+            // Exclude the image field from the SQL query
+            $query = "UPDATE coupons SET code='$code', is_active='$is_active', discount='$discount', expires_at='$expires_at', usage_limit='$usage_limit'   WHERE id='$id'";
+     
+        // Execute the query
+        $result = $this->update($query);
+    
+        // Check if the update was successful
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
  
 }
