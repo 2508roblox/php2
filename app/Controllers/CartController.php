@@ -1,23 +1,26 @@
 <?php
 
 use App\Libs\Controller;
+use App\Middleware\AuthMiddleware;
 
 class CartController extends Controller
 {
 
     public function get()
     {
-        $carts = $this->model('cart')->getAllCarts();
-        $_SESSION['carts'] = $carts;
-        $_SESSION['cartsCount'] = $carts->num_rows ?? 0;
-
-        $wishlists =  $this->model('wishlist')->getAllWishlistsByUserId();
-        $_SESSION['wishlists'] = $wishlists;
-        $_SESSION['wishlistsCount'] = $wishlists->num_rows ?? 0;
+        if (isset($_SESSION['user'])) {
+            $carts = $this->model('cart')->getAllCarts();
+            $_SESSION['carts'] = $carts;
+            $_SESSION['cartsCount'] = $carts->num_rows ?? 0;
+            $wishlists =  $this->model('wishlist')->getAllWishlistsByUserId();
+            $_SESSION['wishlists'] = $wishlists;
+            $_SESSION['wishlistsCount'] = $wishlists->num_rows ?? 0;
+        }
         return $this->view('frontend/cart', ['carts' => $carts]);
     }
     public function add()
     {
+        AuthMiddleware::handle();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // dd($_POST);
             $this->model('cart')->addCart($_POST);
