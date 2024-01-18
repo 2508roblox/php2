@@ -68,6 +68,18 @@ class ProductModel extends Database
         $result = $this->select($sql);
         return $result;
     }
+    public function getSearchProducts($search)
+    {
+        $sql = "SELECT p.*, c.name AS category_name, pi.image AS product_image
+            FROM products AS p
+            JOIN categories AS c ON p.category_id = c.id
+            LEFT JOIN product_img AS pi ON p.id = pi.product_id
+            WHERE p.name LIKE '%$search%'
+            GROUP BY p.id";
+
+        $result = $this->select($sql);
+        return $result;
+    }
     // public function getAllProducts()
     // {
     //     $sql = "SELECT *, c.name AS product_name, pi.image AS product_image
@@ -167,7 +179,7 @@ class ProductModel extends Database
         // Retrieve the existing product data
         $query = "SELECT * FROM products WHERE id = '$id'";
         $result = $this->select($query); // Assuming $this->db is your mysqli connection object
-    
+
         $product = $result->fetch_assoc();
         // Update the product data with the new values
         $product['name'] = mysqli_escape_string($this->link, $data['name']);
@@ -184,7 +196,7 @@ class ProductModel extends Database
         $product['meta_description'] = mysqli_escape_string($this->link, $data['meta_description']);
         $product['slide'] = mysqli_escape_string($this->link, $data['slide'] ? 1 : 0);
         $product['category_id'] = mysqli_escape_string($this->link, $data['category_id']);
-    
+
         // Update the product in the database
         $sql = "UPDATE products SET
                 name = '{$product['name']}',
@@ -202,25 +214,24 @@ class ProductModel extends Database
                 slide = '{$product['slide']}',
                 category_id = '{$product['category_id']}'
                 WHERE id = '$id'";
-        
+
         $result = $this->update($sql);
-    
+
         if ($result) {
             return $product;
         } else {
             return false;
         }
-    }    public function delete_product($id)
+    }
+    public function delete_product($id)
     {
-        
-    
-        
+
+
+
         $query = "DELETE FROM products WHERE id = '$id'";
-    
-      
+
+
         // Execute the query
         $this->delete($query);
-    
-        
     }
 }
