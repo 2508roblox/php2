@@ -6,17 +6,18 @@ require_once __DIR__ . '/inc/footer.php';
 <script src="<?php assets('apis/getProvince.js')?>"  ></script>
 <script src="<?php assets('apis/getDistrict.js')?>"  ></script>
 <script src="<?php assets('apis/getWard.js')?>"  ></script>
+<script src="<?php assets('apis/getFee.js')?>"  ></script>
 	
 	<div class="page-content">
 		<!--banner-->
 		<div class="dz-bnr-inr" style="background-image:url(<?php echo ASSETS_URL_ROOT . '/client_assets/'?>images/background/bg-shape.jpg);">
 			<div class="container">
 				<div class="dz-bnr-inr-entry">
-					<h1>Checkout</h1>
+					<h1>Thanh toán</h1>
 					<nav aria-label="breadcrumb" class="breadcrumb-row">
 						<ul class="breadcrumb">
-							<li class="breadcrumb-item"><a href="<?php url('') ?>"> Home</a></li>
-							<li class="breadcrumb-item">Checkout</li>
+							<li class="breadcrumb-item"><a href="<?php url('') ?>"> Trang chủ</a></li>
+							<li class="breadcrumb-item">Thanh toán</li>
 						</ul>
 					</nav>
 				</div>
@@ -25,9 +26,10 @@ require_once __DIR__ . '/inc/footer.php';
 		<!-- inner page banner End-->
 		<div class="content-inner-1">
 			<div class="container">
+			<form id="cate_form" action="<?php url('admin/checkoutadd') ?>" enctype="multipart/form-data" method="POST">
 				<div class="row shop-checkout">
 					<div class="col-xl-8">
-						<h4 class="title m-b15">Billing details</h4>
+						<h4 class="title m-b15">Chi tiết đơn hàng</h4>
 						<div class="accordion dz-accordion accordion-sm" id="accordionFaq">
 						 
 							<div class="accordion-item">
@@ -44,7 +46,11 @@ require_once __DIR__ . '/inc/footer.php';
 								</div>
 							</div>
 						</div>
-						<form class="row">
+							<div class="" style="
+    display: flex;
+    gap: 1rem;
+    grid-template-columns: 13 !important;
+">
 							<div class="col-md-6">
 								<div class="form-group m-b25">
 									<label class="label-title">First Name</label>
@@ -56,6 +62,7 @@ require_once __DIR__ . '/inc/footer.php';
 									<label class="label-title">Last Name</label>
 									<input name="dzName" required="" class="form-control">
 								</div>
+							</div>
 							</div>
 							 
 							<div class="col-md-12">
@@ -74,12 +81,9 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="col-md-12">
 								<div class="m-b25">
 									<label class="label-title">Quận huyện*</label>
-									<div class="form-select">
-										<select class="default-select w-100">
-											<option selected>Kota</option>
-											<option value="1">Another option</option>
-											<option value="2">Jaipur</option>
-											<option value="3">Udaipur</option>
+									<div class=" " >
+										<select class=" w-100"id="district_list" >
+											 
 										</select>	
 									</div>
 								</div>
@@ -87,12 +91,9 @@ require_once __DIR__ . '/inc/footer.php';
 							<div class="col-md-12">
 								<div class="m-b25">
 									<label class="label-title">Phường*</label>
-									<div class="form-select">
-										<select class="default-select w-100">
-											<option selected>Kota</option>
-											<option value="1">Another option</option>
-											<option value="2">Jaipur</option>
-											<option value="3">Udaipur</option>
+									<div class=" ">
+										<select class=" w-100" id="ward_list">
+										 
 										</select>	
 									</div>
 								</div>
@@ -118,7 +119,6 @@ require_once __DIR__ . '/inc/footer.php';
 									<textarea id="comments" placeholder="Notes about your order, e.g. special notes for delivery." class="form-control" name="comment" cols="90" rows="5" required="required"></textarea>
 								</div>
 							</div>
-						</form>
 					</div>
 					<div class="col-xl-4 side-bar">
 						<h4 class="title m-b15">Your Order</h4>
@@ -148,25 +148,26 @@ require_once __DIR__ . '/inc/footer.php';
 										<td class="price">$100</td>
 									</tr>
 									<tr class="title">
-										<td><h6 class="title font-weight-500">Shipping</h6></td>
+										<td><h6 style="display: flex; justify-content:space-between; align-items: center;" class="title font-weight-500">Phí vận chuyển
+										<img src="https://inkythuatso.com/uploads/images/2021/12/thiet-ke-khong-ten-04-13-29-21.jpg" width="60px" alt="">
+
+
+										</h6></td>
 										<td></td>
 									</tr>
 									<tr class="shipping">
 										<td>
+										 
 											<div class="custom-control custom-checkbox">
-											  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-											  <label class="form-check-label" for="flexRadioDefault1">
-												Free shipping
-											  </label>
-											</div>
-											<div class="custom-control custom-checkbox">
-											  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+											 
 											  <label class="form-check-label" for="flexRadioDefault2">
-												Flat Rate:
+												Giao nhanh:
 											  </label>
+											  <input hidden type="radio" id="shipping_cost_input" name="shipping_cost" value="" id="flexRadioDefault2">
+
 											</div>
 										</td>
-										<td class="price">25.75</td>
+										<td style="color:red" class="price" id="shipping_cost">*vui lòng chọn địa chỉ</td>
 									</tr>
 									<tr class="total">
 										<td>Total</td>
@@ -236,6 +237,7 @@ require_once __DIR__ . '/inc/footer.php';
 						</div>
 					</div>
 				</div>
+			</form>
 			</div>
 		</div>
 			<!-- Icon Box Start -->
@@ -319,25 +321,7 @@ require_once __DIR__ . '/inc/footer.php';
 									<p><span>Phone</span> : (064) 332-1233</p>
 								</li>
 							</ul>
-							<div class="subscribe_widget">
-								<h6 class="title fw-medium text-capitalize">subscribe to our newsletter</h6>	
-								<form class="dzSubscribe" action="script/mailchamp.php" method="post">
-									<div class="dzSubscribeMsg"></div>
-									<div class="form-group">
-										<div class="input-group mb-0">
-											<input name="dzEmail" required="required" type="email" class="form-control" placeholder="Your Email Address">
-											<div class="input-group-addon">
-												<button name="submit" value="Submit" type="submit" class="btn">
-													<svg width="21" height="21" viewBox="0 0 21 21" fill="none">
-														<path d="M4.20972 10.7344H15.8717" stroke="#0D775E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M10.0408 4.90112L15.8718 10.7345L10.0408 16.5678" stroke="#0D775E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
+						 
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-4 col-sm-6">
@@ -442,7 +426,49 @@ require_once __DIR__ . '/inc/footer.php';
 
 
 </div>
+<div id="loading_overlay">
+  <div id="loading_spinner"></div>
+</div>
+<style>
+#loading_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
+.loading_spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading_show_1 {
+	display: block !important;
+}
+.loading_overlay.hidden {
+  display: none;
+}
+
+ 
+</style>
  
 </body>
  
