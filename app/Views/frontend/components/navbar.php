@@ -1,8 +1,9 @@
- <?php 
- use App\Helpers\Format;
- 
- 
- ?>
+ <?php
+
+    use App\Helpers\Format;
+
+
+    ?>
  <header class="site-header mo-left header border-bottom">
      <!-- Main Header -->
      <div class="sticky-header main-bar-wraper navbar-expand-lg">
@@ -10,8 +11,8 @@
              <div class="container-fluid clearfix">
                  <!-- Website Logo -->
                  <div class="logo-header logo-dark me-md-5">
-                     <a href="<?php url('') ?>"><img
-                             src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>logo.png" alt="logo"></a>
+                     <a href="<?php url('') ?>"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>logo.png"
+                             alt="logo"></a>
                  </div>
 
                  <!-- Nav Toggle Button -->
@@ -363,8 +364,8 @@
                                                              name="demo_vertical2">
                                                      </div>
                                                      <h6 class="dz-price text-primary mb-0">
-                                                     <?php Format::currency( $cart['promotion_price'])?>   
-                                              </h6>
+                                                         <?php Format::currency($cart['promotion_price']) ?>
+                                                     </h6>
                                                  </div>
                                              </div>
                                              <a href="<?php echo url('cart/delete/' . $cart['id']); ?>"
@@ -382,9 +383,9 @@
                                  </ul>
                                  <div class="cart-total">
                                      <h5 class="mb-0">Subtotal:</h5>
-                                     <h5 class="mb-0"> 
-                                     <?php Format::currency( $subtotal)?>   
-                                    </h5>
+                                     <h5 class="mb-0">
+                                         <?php Format::currency($subtotal) ?>
+                                     </h5>
                                  </div>
                                  <div class="mt-auto">
                                      <div class="shipping-time">
@@ -428,8 +429,8 @@
                                                  </h6>
                                                  <div class="d-flex align-items-center">
                                                      <h6 class="dz-price text-primary mb-0">
-                                                     <?php Format::currency( $wishlist['promotion_price'])?>   
-                                                         </h6>
+                                                         <?php Format::currency($wishlist['promotion_price']) ?>
+                                                     </h6>
                                                  </div>
                                              </div>
                                              <a href="<?php echo url('wishlist/delete/' . $wishlist['id']); ?>"

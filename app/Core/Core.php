@@ -10,14 +10,14 @@ class Core
     // default controller, method, params
     public function __construct()
     {
-        $exit_controller = array('abouts', 'wishlist', 'shop','about', 'auth' , 'admin','coupon', 'blog', 'cart','category', 'checkout', 'contact', 'home', 'posts', 'products', 'user');
+        $exit_controller = array('abouts', 'wishlist', 'shop', 'about', 'bank', 'momo', 'auth', 'admin', 'blog', 'cart', 'category', 'checkout', 'contact', 'home', 'posts', 'products', 'user');
 
         $url = self::explodeUrl();
-      
+
         // tồn tại url và controller
- 
+
         if (isset($url) &&   in_array($url[0], $exit_controller)) {
-        
+
             $this->controller = ucfirst($url[0]) . 'Controller';
             include_once __DIR__ . '/../controllers/' . $this->controller . '.php';
             $this->controller = new $this->controller();
