@@ -66,7 +66,7 @@ user_id)
     public function deleteAllByUserId()
     {
         $userId = mysqli_real_escape_string($this->link, $_SESSION['user']['id']);
-     
+
 
         $sql = "DELETE FROM cart
                 WHERE user_id = '$userId'  ";
