@@ -101,5 +101,21 @@ class CouponModel extends Database
     // Execute the query
     $this->delete($query);
     }
+   public function get_coupon ($name) {
+    $query = "SELECT * FROM coupons WHERE code = '$name' LIMIT 1";
+    // Execute the query
+    $result = $this->select($query);
+    
+    // Check if the update was successful
+    if ($result) {
+        $result = $result->fetch_assoc();
+        return  $result;
+    } else {
+        return false;
+    }
+  
+    // Execute the query
+    
+    }
  
 }

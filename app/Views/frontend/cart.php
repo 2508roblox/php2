@@ -1,4 +1,6 @@
 <?php
+
+use App\Libs\Session;
 use App\Helpers\Format;
 
 require_once __DIR__ . '/inc/header.php';
@@ -9,8 +11,7 @@ require_once __DIR__ . '/inc/footer.php';
 
 <div class="page-content">
     <!--banner-->
-    <div class="dz-bnr-inr"
-        style="background-image:url(<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/background/bg-shape.jpg);">
+    <div class="dz-bnr-inr" style="background-image:url(<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/background/bg-shape.jpg);">
         <div class="container">
             <div class="dz-bnr-inr-entry">
                 <h1>Giỏ hàng</h1>
@@ -39,7 +40,7 @@ require_once __DIR__ . '/inc/footer.php';
                                     <th></th>
                                     <th>Giá </th>
                                     <th>Số lượng</th>
-                                    <th>Tổng cộng   </th>
+                                    <th>Tổng cộng </th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -48,75 +49,70 @@ require_once __DIR__ . '/inc/footer.php';
                                 $subtotal  =  0;
 
                                 if (is_array($data['carts']) || is_object($data['carts'])) : ?>
-                                <?php foreach ($data['carts'] as $cart) : ?>
-                                <?php $subtotal += $cart['quantity'] * $cart['promotion_price'] ?>
+                                    <?php foreach ($data['carts'] as $cart) : ?>
+                                        <?php $subtotal += $cart['quantity'] * $cart['promotion_price'] ?>
 
-                                <tr>
-                                    <td class="product-item-img"><img
-                                            src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $cart['product_image']  ?>"
-                                            alt="/"></td>
-                                    <td class="product-item-name"><?php echo $cart['product_name']; ?>
-                            
-                                </td>
-                                    <td class="product-item-price"> 
-                                 <?php Format::currency( $cart['promotion_price'])?>   
-                                </td>
-                                    <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input type="text" value="<?php echo $cart['quantity']; ?>"
-                                                name="demo_vertical2" id="demo_vertical2_<?php echo $cart['id']  ?>">
-                                        </div>
-                                    </td>
-                                    <td class="product-item-totle">
-                                    <?php Format::currency( $cart['promotion_price'] * $cart['quantity'])?>   
-                                       </td>
-                                    <td class="product-item-close"><a
-                                            href="<?php echo url('cart/delete/' . $cart['id']); ?>"><i
-                                                class="ti-close"></i></a></td>
-                                </tr>
-                                <?php endforeach; ?>
+                                        <tr>
+                                            <td class="product-item-img"><img src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $cart['product_image']  ?>" alt="/"></td>
+                                            <td class="product-item-name"><?php echo $cart['product_name']; ?>
+
+                                            </td>
+                                            <td class="product-item-price">
+                                                <?php Format::currency($cart['promotion_price']) ?>
+                                            </td>
+                                            <td class="product-item-quantity">
+                                                <div class="quantity btn-quantity style-1 me-3">
+                                                    <input type="text" value="<?php echo $cart['quantity']; ?>" name="demo_vertical2" id="demo_vertical2_<?php echo $cart['id']  ?>">
+                                                </div>
+                                            </td>
+                                            <td class="product-item-totle">
+                                                <?php Format::currency($cart['promotion_price'] * $cart['quantity']) ?>
+                                            </td>
+                                            <td class="product-item-close"><a href="<?php echo url('cart/delete/' . $cart['id']); ?>"><i class="ti-close"></i></a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 <?php else : ?>
-                                <tr>
-                                    <td colspan="6">No items in the cart.</td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="6">No items in the cart.</td>
+                                    </tr>
                                 <?php endif; ?>
                             </tbody>
 
 
 
                             <script>
-                            function postData() {
-                                var inputs = document.querySelectorAll('input[name="demo_vertical2"]');
-                                var inputsArray = Array.from(inputs).reduce(function(arr, input) {
-                                    if (input.id) {
-                                        var idNumber = input.id.replace('demo_vertical2_',
-                                            ''); // Lấy số sau "demo_vertical2_"
-                                        arr.push({
-                                            value: input.value,
-                                            id: idNumber
-                                        });
-                                    }
-                                    return arr;
-                                }, []);
-                                console.log(inputsArray)
+                                function postData() {
+                                    var inputs = document.querySelectorAll('input[name="demo_vertical2"]');
+                                    var inputsArray = Array.from(inputs).reduce(function(arr, input) {
+                                        if (input.id) {
+                                            var idNumber = input.id.replace('demo_vertical2_',
+                                                ''); // Lấy số sau "demo_vertical2_"
+                                            arr.push({
+                                                value: input.value,
+                                                id: idNumber
+                                            });
+                                        }
+                                        return arr;
+                                    }, []);
+                                    console.log(inputsArray)
 
-                                var formData = new FormData();
-                                formData.append('inputsArray', JSON.stringify(inputsArray));
+                                    var formData = new FormData();
+                                    formData.append('inputsArray', JSON.stringify(inputsArray));
 
-                                // Tạo một yêu cầu HTTP POST và gửi formData đến đường dẫn 'cart/update'
-                                var request = new XMLHttpRequest();
-                                request.open('POST', 'cart/update');
-                                request.send(formData);
+                                    // Tạo một yêu cầu HTTP POST và gửi formData đến đường dẫn 'cart/update'
+                                    var request = new XMLHttpRequest();
+                                    request.open('POST', 'cart/update');
+                                    request.send(formData);
 
-                                // Hiển thị thông báo sau khi yêu cầu được gửi đi
-                                request.onload = function() {
-                                    if (request.status === 200) {
-                                        location.reload();
-                                    } else {
-                                        alert('Đã xảy ra lỗi khi gửi dữ liệu.');
-                                    }
-                                };
-                            }
+                                    // Hiển thị thông báo sau khi yêu cầu được gửi đi
+                                    request.onload = function() {
+                                        if (request.status === 200) {
+                                            location.reload();
+                                        } else {
+                                            alert('Đã xảy ra lỗi khi gửi dữ liệu.');
+                                        }
+                                    };
+                                }
                             </script>
                             </script>
                         </table>
@@ -125,14 +121,18 @@ require_once __DIR__ . '/inc/footer.php';
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="input-group mb-0">
-                                    <input name="dzEmail" required="required" type="text" class="form-control"
-                                        placeholder="Coupon Code">
+                <form id="cate_form" action="<?php url('coupon/check_coupon') ?>" enctype="multipart/form-data" method="POST">
+
+                                    <input name="coupon" required="required" type="text" class="form-control" placeholder="Coupon Code">
+
                                     <div class="input-group-addon">
-                                        <button name="submit" value="Submit" type="submit" class="btn coupon">
+                                        <button id="applyCouponBtn" name="submit" value="Submit" type="submit" class="btn coupon">
                                             Apply Coupon
                                         </button>
                                     </div>
+                </form>
                                 </div>
+                             
                             </div>
                         </div>
                         <div class="col-md-6 text-end">
@@ -156,8 +156,7 @@ require_once __DIR__ . '/inc/footer.php';
                         </div>
                         <div class="icon-bx-wraper style-4 m-b30">
                             <div class="icon-bx">
-                                <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/shop-cart/icon-box/pic2.png"
-                                    alt="/">
+                                <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/shop-cart/icon-box/pic2.png" alt="/">
                             </div>
                             <div class="icon-content">
                                 <h6 class="dz-title">Enjoy The Product</h6>
@@ -174,9 +173,18 @@ require_once __DIR__ . '/inc/footer.php';
                                     <td>
                                         <h6 class="mb-0">Total</h6>
                                     </td>
-                                    <td class="price">
-                            
-                                        <?php Format::currency( $subtotal)?>   
+                                    <td class="price text-success">
+
+                                        <?php Format::currency($subtotal) ?>
+                                    </td>
+                                </tr>
+                                <tr class="total">
+                                    <td>
+                                        <h6 class="mb-0">Mã giảm giá</h6>
+                                    </td>
+                                    <td class="price text-danger">
+
+                                       - <?php  Format::currency( Session::get('coupon')) ?>
                                     </td>
                                 </tr>
                             </tbody>
@@ -197,8 +205,7 @@ require_once __DIR__ . '/inc/footer.php';
                 <div class="col-xl-3 col-lg-3 col-sm-6">
                     <div class="icon-bx-wraper style-2 bg-light">
                         <div class="icon-bx">
-                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/password-check.svg"
-                                alt="/">
+                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/password-check.svg" alt="/">
                         </div>
                         <div class="icon-content">
                             <h5 class="dz-title">Filter & Discover</h5>
@@ -210,8 +217,7 @@ require_once __DIR__ . '/inc/footer.php';
                 <div class="col-xl-3 col-lg-3 col-sm-6">
                     <div class="icon-bx-wraper style-2">
                         <div class="icon-bx">
-                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/cart.svg"
-                                alt="/">
+                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/cart.svg" alt="/">
                         </div>
                         <div class="icon-content">
                             <h5 class="dz-title">Add to cart</h5>
@@ -223,8 +229,7 @@ require_once __DIR__ . '/inc/footer.php';
                 <div class="col-xl-3 col-lg-3 col-sm-6">
                     <div class="icon-bx-wraper style-2 bg-light">
                         <div class="icon-bx">
-                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/discovery.svg"
-                                alt="/">
+                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/discovery.svg" alt="/">
                         </div>
                         <div class="icon-content">
                             <h5 class="dz-title">Fast Shipping</h5>
@@ -236,8 +241,7 @@ require_once __DIR__ . '/inc/footer.php';
                 <div class="col-xl-3 col-lg-3 col-sm-6">
                     <div class="icon-bx-wraper style-2">
                         <div class="icon-bx">
-                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/box-tick.svg"
-                                alt="/">
+                            <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/svg/icon-bx/box-tick.svg" alt="/">
                         </div>
                         <div class="icon-content">
                             <h5 class="dz-title">Enjoy The Product</h5>
@@ -263,8 +267,7 @@ require_once __DIR__ . '/inc/footer.php';
                 <div class="col-xl-3 col-md-4 col-sm-6">
                     <div class="widget widget_about me-2">
                         <div class="footer-logo logo-white">
-                            <a href="<?php url('') ?>"><img
-                                    src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/logo.svg" alt="/"></a>
+                            <a href="<?php url('') ?>"><img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/logo.svg" alt="/"></a>
                         </div>
                         <ul class="widget-address">
                             <li>
@@ -283,16 +286,12 @@ require_once __DIR__ . '/inc/footer.php';
                                 <div class="dzSubscribeMsg"></div>
                                 <div class="form-group">
                                     <div class="input-group mb-0">
-                                        <input name="dzEmail" required="required" type="email" class="form-control"
-                                            placeholder="Your Email Address">
+                                        <input name="dzEmail" required="required" type="email" class="form-control" placeholder="Your Email Address">
                                         <div class="input-group-addon">
                                             <button name="submit" value="Submit" type="submit" class="btn">
                                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none">
-                                                    <path d="M4.20972 10.7344H15.8717" stroke="#0D775E" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M10.0408 4.90112L15.8718 10.7345L10.0408 16.5678"
-                                                        stroke="#0D775E" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
+                                                    <path d="M4.20972 10.7344H15.8717" stroke="#0D775E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path d="M10.0408 4.90112L15.8718 10.7345L10.0408 16.5678" stroke="#0D775E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                                 </svg>
                                             </button>
                                         </div>
@@ -308,8 +307,7 @@ require_once __DIR__ . '/inc/footer.php';
                         <ul>
                             <li>
                                 <div class="dz-media">
-                                    <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/product/small/1.png"
-                                        alt="/">
+                                    <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/product/small/1.png" alt="/">
                                 </div>
                                 <div class="dz-content">
                                     <h6 class="name"><a href="javascript:void(0);">Wooden Water Bottles</a></h6>
@@ -318,8 +316,7 @@ require_once __DIR__ . '/inc/footer.php';
                             </li>
                             <li>
                                 <div class="dz-media">
-                                    <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/product/small/2.png"
-                                        alt="/">
+                                    <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/product/small/2.png" alt="/">
                                 </div>
                                 <div class="dz-content">
                                     <h6 class="name"><a href="javascript:void(0);">Eco friendly bags</a></h6>
@@ -328,8 +325,7 @@ require_once __DIR__ . '/inc/footer.php';
                             </li>
                             <li>
                                 <div class="dz-media">
-                                    <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/product/small/3.png"
-                                        alt="/">
+                                    <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/shop/product/small/3.png" alt="/">
                                 </div>
                                 <div class="dz-content">
                                     <h6 class="name"><a href="javascript:void(0);">Bamboo toothbrushes</a></h6>
@@ -391,8 +387,7 @@ require_once __DIR__ . '/inc/footer.php';
                         Reserved.</p>
                 </div>
                 <div class="col-lg-6 col-md-12 text-end">
-                    <div
-                        class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-xl-end">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-xl-end">
                         <span class="me-3">We Accept: </span>
                         <img src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/footer-img.png" alt="/">
                     </div>

@@ -45,13 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
           const shippingCostInput = document.getElementById('shipping_cost_input');
           const total_price_text = document.getElementById('total_price_text');
           const total_price_input = document.getElementById('total_amount');
+          const discount_input = document.getElementById('discount');
  
           shippingCostInput.value = shippingCost;
           shippingCostElement.textContent = formattedCost;
           
-          total_price_input.value = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10) + shippingCost
+          total_price_input.value = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10) + shippingCost - discount_input.value
           const totalPriceValue = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10);
-          const totalPriceWithShipping = totalPriceValue + shippingCost;
+          const totalPriceWithShipping = totalPriceValue + shippingCost  - discount_input.value;
           total_price_text.textContent = totalPriceWithShipping.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
           
         })

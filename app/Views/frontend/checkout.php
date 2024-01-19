@@ -1,5 +1,6 @@
 <?php
 
+use App\Libs\Session;
 use App\Helpers\Format;
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
@@ -30,7 +31,7 @@ require_once __DIR__ . '/inc/footer.php';
 		<div class="container">
 			<form id="cate_form" action="<?php url('checkout') ?>" enctype="multipart/form-data" method="POST">
 				<input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['id'] ?>">
-				<input type="hidden" name="discount" value="0">
+			
 				<div class="row shop-checkout">
 					<div class="col-xl-8">
 						<h4 class="title m-b15">Chi tiết đơn hàng</h4>
@@ -38,10 +39,7 @@ require_once __DIR__ . '/inc/footer.php';
 
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="headingTwo">
-									<a href="#" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-										Have a coupon? &nbsp; <span class="text-primary">Click here to enter your code</span>
-										<span class="toggle-close"></span>
-									</a>
+									 
 								</h2>
 								<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFaq">
 									<div class="accordion-body">
@@ -184,9 +182,26 @@ require_once __DIR__ . '/inc/footer.php';
 										</td>
 										<td style="color:red" class="price" id="shipping_cost">*vui lòng chọn địa chỉ</td>
 									</tr>
+									<tr class="shipping">
+										<td>
+
+											<div class="custom-control custom-checkbox">
+
+												<label class="form-check-label" for="flexRadioDefault2">
+													Mã giảm giá :
+												</label>
+												<input hidden type="text" id="shipping_cost_input" name="shipping_price" value="" id="flexRadioDefault2">
+
+											</div>
+										</td>
+										<td style="color:green" class="price" id="shipping_cost">
+										- <?php  Format::currency( Session::get('coupon')) ?></td>
+										<input type="hidden" name="discount" value="<?php echo Session::get('coupon')?>">
+									 
+									</tr>
 									<tr class="total">
 										<td>Total</td>
-										<td class="price" id="total_price_text"><?php Format::currency( $subtotal   )?> </td>
+										<td class="price" id="total_price_text"><?php Format::currency( $subtotal - Session::get('coupon')   )?> </td>
 
 									</tr>
 								</tbody>

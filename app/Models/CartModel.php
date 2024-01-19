@@ -7,25 +7,39 @@ class CartModel extends Database
 
     public function addCart($data)
     {
-
         $product_id = mysqli_escape_string($this->link, $data['product_id']);
         $quantity = mysqli_escape_string($this->link, $data['demo_vertical2']);
         $user_id = mysqli_escape_string($this->link, $_SESSION['user']['id']);
-
-        $sql = "INSERT INTO cart 
-        (product_id,
-quantity,
-user_id)
-        VALUES 
-        ('$product_id',
-'$quantity',
-'$user_id')";
-        $result = $this->insert($sql);
-        if ($result) {
-            // Get the ID of the inserted product
-            return $result;
+        
+        $exist_cart_sql = "SELECT * FROM cart WHERE product_id = '$product_id' AND user_id = '$user_id'";
+        $exist_cart = $this->select($exist_cart_sql);
+        
+        if ($exist_cart) {
+            $exist_cart =  $exist_cart->fetch_assoc();
+            $new_quantity = $exist_cart['quantity'] + $quantity;
+            // If the product already exists in the cart, update the quantity
+            $update_sql = "UPDATE cart SET quantity = '$new_quantity' WHERE product_id = '$product_id' AND user_id = '$user_id'";
+            $update_result = $this->update($update_sql);
+            
+            if ($update_result) {
+                // Quantity updated successfully
+                return $update_result;
+            } else {
+                // Failed to update quantity
+                return false;
+            }
         } else {
-            return false;
+            // If the product doesn't exist in the cart, insert a new row
+            $insert_sql = "INSERT INTO cart (product_id, quantity, user_id) VALUES ('$product_id', '$quantity', '$user_id')";
+            $insert_result = $this->insert($insert_sql);
+            
+            if ($insert_result) {
+                // Get the ID of the inserted product
+                return $insert_result;
+            } else {
+                // Failed to insert the product into the cart
+                return false;
+            }
         }
     }
     public function getAllCarts()
