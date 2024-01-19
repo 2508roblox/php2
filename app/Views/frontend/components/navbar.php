@@ -11,7 +11,7 @@
                  <!-- Website Logo -->
                  <div class="logo-header logo-dark me-md-5">
                      <a href="<?php url('') ?>"><img
-                             src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>images/logo.svg" alt="logo"></a>
+                             src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>logo.png" alt="logo"></a>
                  </div>
 
                  <!-- Nav Toggle Button -->
