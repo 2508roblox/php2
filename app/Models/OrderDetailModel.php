@@ -43,5 +43,24 @@ class OrderdetailModel extends Database
             return false;
         }
     }
- 
+    public function get_order_items_by_order_id($orderId)
+    {
+        // Prepare the SQL query
+        $sql = "SELECT o.*, p.promotion_price , p.name AS product_name, pi.image AS product_image
+        FROM order_items AS o
+        JOIN products AS p ON o.product_id = p.id
+        LEFT JOIN (
+            SELECT product_id, MIN(id) AS min_image_id, image
+            FROM product_img
+            GROUP BY product_id
+        ) AS pi ON p.id = pi.product_id
+        WHERE o.order_id = '$orderId'";
+        $result = $this->select($sql);
+
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }

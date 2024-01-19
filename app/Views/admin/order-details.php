@@ -1,7 +1,16 @@
 <?php
+
+use App\Helpers\Format;
+
 require_once __DIR__ . '/inc/header.php';
 
 ?>
+
+<?php
+$subtotal  =  0;
+
+if (is_array($data['order']) || is_object($data['order'])) : ?>
+<?php foreach ($data['order'] as $order) : ?>
 <div id="top" class="sa-app__body">
     <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
         <div class="container container--max--xl">
@@ -15,7 +24,7 @@ require_once __DIR__ . '/inc/header.php';
                                 <li class="breadcrumb-item active" aria-current="page">Order #80294</li>
                             </ol>
                         </nav>
-                        <h1 class="h3 m-0">Order #80294</h1>
+                        <h1 class="h3 m-0">Order #<?php echo $order['id'] ?></h1>
                     </div>
                     <div class="col-auto d-flex"><a href="#" class="btn btn-secondary me-3">Delete</a><a href="#"
                             class="btn btn-primary">Edit</a></div>
@@ -24,9 +33,10 @@ require_once __DIR__ . '/inc/header.php';
             <div class="sa-page-meta mb-5">
                 <div class="sa-page-meta__body">
                     <div class="sa-page-meta__list">
-                        <div class="sa-page-meta__item">October 7, 2020 at 9:08 pm</div>
+                        <div class="sa-page-meta__item"><?php echo $order['created_at'] ?></div>
                         <div class="sa-page-meta__item">6 items</div>
-                        <div class="sa-page-meta__item">Total $5,882.00</div>
+                        <div class="sa-page-meta__item">Total <?php Format::currency($order['total_amount'])  ?>
+                        </div>
                         <div class="sa-page-meta__item d-flex align-items-center fs-6"><span
                                 class="badge badge-sa-success me-2">Paid</span><span
                                 class="badge badge-sa-warning me-2">Partially Fulfilled</span></div>
@@ -54,93 +64,62 @@ require_once __DIR__ . '/inc/header.php';
                             <div class="table-responsive">
                                 <table class="sa-table">
                                     <tbody>
+                                        <?php
+                                                $subtotal  =  0;
+
+                                                if (is_array($data['order_items']) || is_object($data['order_items'])) : ?>
+                                        <?php foreach ($data['order_items'] as $order_item) : ?>
+                                        <?php $subtotal += $order_item['quantity'] * $order_item['price'] ?>
+
                                         <tr>
                                             <td class="min-w-20x">
                                                 <div class="d-flex align-items-center"><img
-                                                        src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-2-40x40.jpg"
+                                                        src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $order_item['product_image']  ?>"
                                                         class="me-4" width="40" height="40" alt="" /><a
-                                                        href="app-product.html" class="text-reset">Brandix Brake Kit
-                                                        BDX-750Z370-S</a></div>
+                                                        href="app-product.html"
+                                                        class="text-reset"><?php echo $order_item['product_name']  ?></a>
+                                                </div>
                                             </td>
                                             <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">849</span><span
-                                                        class="sa-price__decimal">.00</span></div>
+                                                <div class="sa-price"><span class="sa-price__symbol"></span><span
+                                                        class="sa-price__integer"><?php Format::currency($order_item['price']) ?></span><span
+                                                        class="sa-price__decimal"> </span></div>
                                             </td>
-                                            <td class="text-end">1</td>
+                                            <td class="text-end"><?php echo $order_item['quantity']  ?></td>
                                             <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">849</span><span
-                                                        class="sa-price__decimal">.00</span></div>
+                                                <div class="sa-price"><span class="sa-price__symbol"></span><span
+                                                        class="sa-price__integer"><?php Format::currency($order_item['price'] * $order_item['quantity'])  ?></span><span
+                                                        class="sa-price__decimal"></span></div>
+
                                             </td>
                                         </tr>
+                                        <?php endforeach; ?>
+                                        <?php else : ?>
                                         <tr>
-                                            <td class="min-w-20x">
-                                                <div class="d-flex align-items-center"><img
-                                                        src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-7-40x40.jpg"
-                                                        class="me-4" width="40" height="40" alt="" /><a
-                                                        href="app-product.html" class="text-reset">Glossy Gray 19&quot;
-                                                        Aluminium Wheel
-                                                        AR-19</a></div>
-                                            </td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">699</span><span
-                                                        class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                            <td class="text-end">2</td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">1,398</span><span
-                                                        class="sa-price__decimal">.00</span></div>
-                                            </td>
+                                            <td colspan="6">No items in the cart.</td>
                                         </tr>
-                                        <tr>
-                                            <td class="min-w-20x">
-                                                <div class="d-flex align-items-center"><img
-                                                        src="<?php echo ASSETS_URL_ROOT . '/admin_assets/' ?>images/products/product-16-40x40.jpg"
-                                                        class="me-4" width="40" height="40" alt="" /><a
-                                                        href="app-product.html" class="text-reset">Twin Exhaust Pipe
-                                                        From Brandix Z54</a></div>
-                                            </td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">1,210</span><span
-                                                        class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                            <td class="text-end">3</td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">3,630</span><span
-                                                        class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                        </tr>
+                                        <?php endif; ?>
                                     </tbody>
                                     <tbody class="sa-table__group">
                                         <tr>
                                             <td colSpan="3">Subtotal</td>
                                             <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">5,877</span><span
-                                                        class="sa-price__decimal">.00</span></div>
+                                                <div class="sa-price"><span class="sa-price__symbol"></span><span
+                                                        class="sa-price__integer">
+                                                        <?php Format::currency($subtotal)  ?></span><span
+                                                        class="sa-price__decimal"> </span></div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td colSpan="3">Store Credit</td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">-20</span><span
-                                                        class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                        </tr>
+
                                         <tr>
                                             <td colSpan="3">Shipping
-                                                <div class="text-muted fs-exact-13">via FedEx International</div>
+                                                <div class="text-muted fs-exact-13">giao hàng nhanh</div>
                                             </td>
                                             <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">25</span><span
-                                                        class="sa-price__decimal">.00</span></div>
+                                                <div class="sa-price"><span class="sa-price__symbol"></span><span
+                                                        class="sa-price__integer">
+                                                        <?php Format::currency($order['shipping_price']) ?></span><span
+                                                        class="sa-price__decimal"> </span></div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -148,9 +127,9 @@ require_once __DIR__ . '/inc/header.php';
                                         <tr>
                                             <td colSpan="3">Total</td>
                                             <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span
-                                                        class="sa-price__integer">5,882</span><span
-                                                        class="sa-price__decimal">.00</span></div>
+                                                <div class="sa-price"><span class="sa-price__symbol"></span><span
+                                                        class="sa-price__integer"><?php Format::currency($subtotal + $order['shipping_price']) ?></span><span
+                                                        class="sa-price__decimal"></span></div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -267,8 +246,9 @@ require_once __DIR__ . '/inc/header.php';
                                         width="40" height="40" alt="" />
                                 </div>
                                 <div class="ms-3 ps-2">
-                                    <div class="fs-exact-14 fw-medium">Jessica Moore</div>
-                                    <div class="fs-exact-13 text-muted">This is a first order</div>
+                                    <div class="fs-exact-14 fw-medium"><?php echo $order['email']; ?></div>
+                                    <div class="fs-exact-13 text-muted"><?php echo $order['firstname']; ?>
+                                        <?php echo $order['lastname']; ?></div>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +284,12 @@ require_once __DIR__ . '/inc/header.php';
         </div>
     </div>
 </div>
-
+<?php endforeach; ?>
+<?php else : ?>
+<tr>
+    <td colspan="6">No items in the cart.</td>
+</tr>
+<?php endif; ?>
 
 <!-- sa-app__body / end -->
 <!-- sa-app__footer -->
