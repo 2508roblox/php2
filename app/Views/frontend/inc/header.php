@@ -30,9 +30,15 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/nouislider/nouislider.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lightgallery.css" >
-    <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lg-thumbnail.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lg-zoom.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lightgallery.css" > -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lg-thumbnail.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>vendor/lightgallery/dist/css/lg-zoom.css"> -->
+	<script src="
+https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css
+" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL_ROOT .'/client_assets/' ?>css/style.css">
 	
 	<!-- GOOGLE FONTS-->

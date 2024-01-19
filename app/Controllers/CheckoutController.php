@@ -1,6 +1,7 @@
 <?php
 
 use App\Libs\Controller;
+use App\Middleware\AuthMiddleware;
 
 class CheckoutController extends Controller
 {
@@ -26,6 +27,8 @@ class CheckoutController extends Controller
 
             // return  $result ?   dd($_POST) : 'error';
         }
+        AuthMiddleware::handle();
+
         if (isset($_SESSION['user'])) {
             $carts = $this->model('cart')->getAllCarts();
             $_SESSION['carts'] = $carts;

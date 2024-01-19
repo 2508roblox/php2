@@ -5,6 +5,7 @@ require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/components/navbar.php';
 require_once __DIR__ . '/inc/footer.php';
 ?>
+
 <!-- Header End -->
 <?php foreach ($data['productDetails'] as $productDetail) : ?>
 
@@ -31,14 +32,25 @@ require_once __DIR__ . '/inc/footer.php';
                                         <div class="swiper-wrapper" id="lightgallery">
                                             <?php foreach ($data['productImages'] as $productImage) : ?>
                                                 <div class="swiper-slide">
-                                                    <div class="dz-media DZoomImage">
-                                                        <a class="mfp-link lg-item" href="images/products/product-detail2/product1.png" data-src="images/products/product-detail2/product1.png">
+                                                    <div class="dz-media DZoomImage"  id="static-thumbnails">
+                                                        <a class="mfp-link lg-item" href="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $productImage['image']; ?>" data-src="images/products/product-detail2/product1.png">
                                                             <i class="feather icon-maximize dz-maximize top-left"></i>
                                                         </a>
+                                                        <a href="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $productImage['image']; ?>">
                                                         <img src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $productImage['image']; ?>" alt="image">
+                                                        </a>
                                                     </div>
-                                                </div>
+                                                   
+                                                    <script>
+    lightGallery(document.getElementById('static-thumbnails'), {
+    animateThumb: false,
+    zoomFromOrigin: false,
+    allowMediaOverlap: true,
+    toggleThumb: true,
+});
 
+</script>
+                                                </div>
 
                                             <?php endforeach; ?>
 

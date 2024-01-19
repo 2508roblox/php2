@@ -16,9 +16,9 @@
 <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/wnumb/wNumb.js"></script><!-- WNUMB -->
 <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/nouislider/nouislider.min.js"></script><!-- NOUSLIDER MIN JS-->
 <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>js/dz.carousel.js"></script><!-- DZ CAROUSEL JS -->
-<script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/lightgallery/dist/lightgallery.min.js"></script>
-<script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/lightgallery/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
-<script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/lightgallery/dist/plugins/zoom/lg-zoom.min.js"></script>
+<!-- <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/lightgallery/dist/lightgallery.min.js"></script> -->
+<!-- <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/lightgallery/dist/plugins/thumbnail/lg-thumbnail.min.js"></script> -->
+<!-- <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>vendor/lightgallery/dist/plugins/zoom/lg-zoom.min.js"></script> -->
 <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>js/dz.ajax.js"></script><!-- AJAX -->
 <script src="<?php echo ASSETS_URL_ROOT . '/client_assets/' ?>js/custom.js"></script><!-- CUSTOM JS -->
 

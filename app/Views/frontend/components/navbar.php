@@ -118,7 +118,7 @@
                                              d="M14.8315 17.8278C14.8315 17.1374 15.3912 16.5778 16.0815 16.5778H16.0899C16.7802 16.5778 17.3399 17.1374 17.3399 17.8278C17.3399 18.5182 16.7802 19.0778 16.0899 19.0778H16.0815C15.3912 19.0778 14.8315 18.5182 14.8315 17.8278Z"
                                              fill="var(--white)" />
                                      </svg>
-                                     <span class="badge badge-circle"><?php echo $_SESSION['cartsCount']  ?></span>
+                                     <span class="badge badge-circle"><?php echo $_SESSION['cartsCount'] ?? 0  ?></span>
                                  </a>
                              </li>
                          </ul>
