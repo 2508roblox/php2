@@ -226,12 +226,10 @@ require_once __DIR__ . '/inc/footer.php';
                                     <div class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-4 m-md-b15 m-sm-b0 m-b30">
                                         <div class="shop-card">
                                             <div class="dz-media">
-                                                <img
-                                                style="
+                                                <img style="
     height: 300px;
     object-fit: contain;
-"
-                                                src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo $product['product_image']  ?>"
+" src="<?php echo ASSETS_URL_ROOT . '/public/upload/' ?><?php echo isset($product['product_image']) && $product['product_image'] !== '' ? $product['product_image'] : 'empty-img.png'; ?>"
                                                     alt="image">
                                                 <div class="shop-meta">
                                                     <a href="javascript:void(0);" class="btn btn-secondary btn-icon"
@@ -330,9 +328,9 @@ require_once __DIR__ . '/inc/footer.php';
                                                 </ul>
                                                 <h6 class="price">
                                                     <del>
-      
-                                                    <?php Format::currency( $product['price'])?>   </del>
-                                                    <?php Format::currency( $product['promotion_price'])?>   
+
+                                                        <?php Format::currency( $product['price'])?> </del>
+                                                    <?php Format::currency( $product['promotion_price'])?>
                                                 </h6>
                                             </div>
                                             <div class="product-tag">
