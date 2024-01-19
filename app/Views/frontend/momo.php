@@ -17,7 +17,11 @@
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="pragma" content="no-cache" />
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="<?php echo ASSETS_URL_ROOT . '/public_invoice/' ?>bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php
+
+use App\Helpers\Format;
+
+ echo ASSETS_URL_ROOT . '/public_invoice/' ?>bootstrap.min.css" />
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" />
     <!-- theme stylesheet-->
@@ -120,7 +124,7 @@
                             <p><i class="fa fa-money" aria-hidden="true"></i>
                                 <span style="padding-left: 5px;">Số tiền cần thanh toán</span>
                                 <br />
-                                <b style="padding-left: 25px;color:aqua;">500,000đ</b>
+                                <b style="padding-left: 25px;color:aqua;"><?php Format::currency($data['data']['total_amount']) ?></b>
                             </p>
                         </div>
                         <div class="entry">
@@ -128,7 +132,7 @@
                                 <span style="padding-left: 5px;">Nội dung chuyển khoản</span>
                                 <br />
                                 <b id="copyNoiDung"
-                                    style="padding-left: 25px;word-break: keep-all;color:yellow;">N2AAGU</b>
+                                    style="padding-left: 25px;word-break: keep-all;color:yellow;">MA HOA DON <?php echo $data['data']['id'] ?></b>
                                 <i onclick="copy()" data-clipboard-target="#copyNoiDung" class="fas fa-copy copy"></i>
                             </p>
                         </div>

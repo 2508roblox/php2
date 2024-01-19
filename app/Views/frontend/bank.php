@@ -1,3 +1,4 @@
+<?php use App\Helpers\Format; ?>
 <!DOCTYPE html>
 
 <head id="j_idt2">
@@ -120,7 +121,7 @@
                             <p><i class="fa fa-money" aria-hidden="true"></i>
                                 <span style="padding-left: 5px;">Số tiền cần thanh toán</span>
                                 <br />
-                                <b style="padding-left: 25px;color:aqua;">500,000đ</b>
+                                <b style="padding-left: 25px;color:aqua;"><?php Format::currency($data['data']['total_amount']) ?></b>
                             </p>
                         </div>
                         <div class="entry">
@@ -128,7 +129,7 @@
                                 <span style="padding-left: 5px;">Nội dung chuyển khoản</span>
                                 <br />
                                 <b id="copyNoiDung"
-                                    style="padding-left: 25px;word-break: keep-all;color:yellow;">N2AAGU</b>
+                                    style="padding-left: 25px;word-break: keep-all;color:yellow;">MA HOA DON <?php echo $data['data']['id'] ?></b>
                                 <i onclick="copy()" data-clipboard-target="#copyNoiDung" class="fas fa-copy copy"></i>
                             </p>
                         </div>

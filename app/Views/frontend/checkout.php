@@ -160,11 +160,11 @@ require_once __DIR__ . '/inc/footer.php';
 									</tr>
 									<tr class="title">
 										<td>
-											<h6 style="display: flex; justify-content:space-between; align-items: center;" class="title font-weight-500">Phí vận chuyển
-												<img src="https://inkythuatso.com/uploads/images/2021/12/thiet-ke-khong-ten-04-13-29-21.jpg" width="60px" alt="">
-
-
+											<h6 style="display: flex; justify-content:space-between; align-items: center;" class="title font-weight-500">Phí vận chuyển 
+												<img src="https://pito.vn/wp-content/uploads/2022/12/Logo-Giao-hang-nhanh-moi.webp" width="30px" alt="">
+												
 											</h6>
+											<span class="font-italic" style="font-style: italic; color: gray; font-size: small;">Api giao hàng nhanh </span>
 										</td>
 										<td></td>
 									</tr>
@@ -210,10 +210,24 @@ require_once __DIR__ . '/inc/footer.php';
 								<div class="accordion-item">
 									<div class="accordion-header" id="heading1">
 										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse1" role="navigation" aria-expanded="true" aria-controls="collapse1">
-											<input class="form-check-input radio" type="radio" name="payment_method" value="bank" id="flexRadioDefault3">
+											<input class="form-check-input radio" type="radio" name="payment_method" value="momo" id="flexRadioDefault3">
 											<label class="form-check-label" for="flexRadioDefault3">
-												Direct bank transfer
+												Ví Momo
 											</label>
+											<img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" width="30px" alt="">
+										</div>
+									</div>
+									 
+								</div>
+								<div class="accordion-item">
+									<div class="accordion-header" id="heading1">
+										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse1" role="navigation" aria-expanded="true" aria-controls="collapse1">
+											<input class="form-check-input radio" type="radio" name="payment_method" value="vietinbank" id="flexRadioDefault10">
+											<label class="form-check-label" for="flexRadioDefault10">
+												VietinBank
+											</label>
+											<img src="https://i.pinimg.com/564x/0e/33/49/0e3349ab85ae5ebf604df3cb380f9c8f.jpg" width="30px" alt="">
+
 										</div>
 									</div>
 									<div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionFaq1">
@@ -227,7 +241,7 @@ require_once __DIR__ . '/inc/footer.php';
 										<div class="accordion-button collapsed custom-control custom-checkbox" data-bs-toggle="collapse" data-bs-target="#collapse2" role="navigation" aria-expanded="true" aria-controls="collapse2">
 											<input class="form-check-input radio" checked type="radio" name="payment_method" value="cash" id="flexRadioDefault5">
 											<label class="form-check-label" for="flexRadioDefault5">
-												Cash on delivery
+												Thanh toán khi nhận hàng
 											</label>
 										</div>
 									</div>
