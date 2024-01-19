@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
         .then(response => response.json())
         .then(feeData => {
-          console.log(feeData)
           loadingOverlay.classList.remove('loading_show_1');
           const shippingCost = feeData.data.total;
           const formattedCost = shippingCost.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -43,16 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
           // Render phí vận chuyển
           const shippingCostElement = document.getElementById('shipping_cost');
           const shippingCostInput = document.getElementById('shipping_cost_input');
+          const subtotal_text = document.getElementById('subtotal_text');
           const total_price_text = document.getElementById('total_price_text');
           const total_price_input = document.getElementById('total_amount');
-          const discount_input = document.getElementById('discount');
+          const discount_input = document.getElementById('discount_input');
  
           shippingCostInput.value = shippingCost;
           shippingCostElement.textContent = formattedCost;
           
-          total_price_input.value = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10) + shippingCost - discount_input.value
-          const totalPriceValue = parseInt(total_price_text.textContent.replace(/\D/g, ''), 10);
-          const totalPriceWithShipping = totalPriceValue + shippingCost  - discount_input.value;
+          total_price_input.value = parseInt(subtotal_text.textContent.replace(/\D/g, ''), 10) + shippingCost - discount_input.value
+          const subtotal_text_ = parseInt(subtotal_text.textContent.replace(/\D/g, ''), 10);
+          const totalPriceWithShipping = subtotal_text_ + shippingCost  - discount_input.value;
           total_price_text.textContent = totalPriceWithShipping.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
           
         })

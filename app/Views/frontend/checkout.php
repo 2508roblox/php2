@@ -103,7 +103,7 @@ require_once __DIR__ . '/inc/footer.php';
 						<div class="col-md-12">
 							<div class="form-group m-b25">
 								<label class="label-title">Địa chỉ* </label>
-								<input name="address" required="" class="form-control m-b15" placeholder="House number and street name">
+								<input name="address" required="" class="form-control m-b15" placeholder="Địa chỉ nhận hàng">
 							</div>
 						</div>
 
@@ -190,13 +190,12 @@ require_once __DIR__ . '/inc/footer.php';
 												<label class="form-check-label" for="flexRadioDefault2">
 													Mã giảm giá :
 												</label>
-												<input hidden type="text" id="shipping_cost_input" name="shipping_price" value="" id="flexRadioDefault2">
 
 											</div>
 										</td>
 										<td style="color:green" class="price" id="shipping_cost">
 										- <?php  Format::currency( Session::get('coupon')) ?></td>
-										<input type="hidden" name="discount" value="<?php echo Session::get('coupon')?>">
+										<input type="hidden" id="discount_input" name="discount" value="<?php echo Session::get('coupon')?>">
 									 
 									</tr>
 									<tr class="total">
