@@ -70,6 +70,15 @@ require_once __DIR__ . '/inc/header.php';
 
                                     <?php 
                                 }
+                                     else   if ($order['status'] == 'cancle') {
+                                 ?>
+                                    
+                                
+                                  
+                                    <div class="badge badge-sa-danger"><?php echo $order['status']; ?></div>
+
+                                    <?php 
+                                }
                                  ?>
                                 </div>
                             </td>

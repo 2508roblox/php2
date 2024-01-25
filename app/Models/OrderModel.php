@@ -80,8 +80,9 @@ class OrderModel extends Database
         $order_id = mysqli_real_escape_string($this->link, $order_id);
         $user_id = mysqli_real_escape_string($this->link, $_SESSION['user']['id']);
 
-        $sql = "DELETE FROM orders
-                WHERE id = '$order_id'";
+        $sql = "UPDATE  orders
+                SET status = 'cancle'
+                WHERE id = '$order_id' AND status = 'pending' ";
         $result = $this->delete($sql);
 
         if ($result) {
