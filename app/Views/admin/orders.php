@@ -57,7 +57,20 @@ require_once __DIR__ . '/inc/header.php';
                             <td><a href="" class="text-reset"><?php echo $order['email']; ?></a></td>
                             <td>
                                 <div class="d-flex fs-6">
-                                    <div class="badge badge-sa-danger"><?php echo $order['status']; ?></div>
+                                 <?php 
+                                 if ($order['status'] == 'pending') {
+                                 ?>
+                                    <div class="badge badge-sa-warning"><?php echo $order['status']; ?></div>
+                                    <?php 
+                                } else   if ($order['status'] == 'confirm') {
+                                    
+                                
+                                    ?>
+                                    <div class="badge badge-sa-info"><?php echo $order['status']; ?></div>
+
+                                    <?php 
+                                }
+                                 ?>
                                 </div>
                             </td>
                             <td>
@@ -82,6 +95,9 @@ require_once __DIR__ . '/inc/header.php';
                                         </svg></button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="order-context-menu-0">
 
+                                        <li><a class="dropdown-item text-success"
+                                                href="<?php echo url('admin/orderconfirm/' . $order['id']); ?>">Confirm</a>
+                                        </li>
                                         <li><a class="dropdown-item text-danger"
                                                 href="<?php echo url('admin/orderdelete/' . $order['id']); ?>">Delete</a>
                                         </li>

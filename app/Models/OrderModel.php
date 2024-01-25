@@ -90,6 +90,20 @@ class OrderModel extends Database
             return false; // Xóa thất bại
         }
     }
+    public function confirmOrder($order_id)
+    {
+        $order_id = mysqli_real_escape_string($this->link, $order_id);
+
+        $sql = "UPDATE  orders SET status = 'confirm'
+                WHERE status = 'pending' AND id = '$order_id'";
+        $result = $this->update($sql);
+
+        if ($result) {
+            return true; // Xóa thành công
+        } else {
+            return false; // Xóa thất bại
+        }
+    }
     public function getAllOrderDates()
     {
         $query = "SELECT DISTINCT DATE(created_at) AS order_date

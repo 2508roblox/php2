@@ -276,6 +276,11 @@ class AdminController extends Controller
         $this->model('order')->deleteOrder($id);
         redirect('admin/orders');
     }
+    public function orderconfirm($id)
+    {
+        $this->model('order')->confirmOrder($id);
+        redirect('admin/orders');
+    }
 
     public function coupons()
     {
