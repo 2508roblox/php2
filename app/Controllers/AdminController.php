@@ -16,10 +16,13 @@ class AdminController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // print_r($_POST['order_date']);
+            if ($_POST['order_date'] == 'all') {
+                redirect('admin');
+            }
 
             $orders =  $this->model('order')->getOrdersByDate($_POST['order_date']);
             $dates =  $this->model('order')->getAllOrderDates();
-            return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates]);
+            return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates, 'selected' => $_POST['order_date']]);
         }
     }
     public function products()
