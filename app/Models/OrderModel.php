@@ -55,6 +55,17 @@ class OrderModel extends Database
         $result = $this->select($query);
         return $result;
     }
+    public function getOrderByUser()
+    {
+        $user_id = $_SESSION['user']['id'];
+
+        $query = "SELECT o.*, u.id AS user_id , u.email  
+                  FROM orders AS o
+                  JOIN users AS u ON o.user_id = u.id
+                  WHERE o.user_id = '$user_id' ";
+        $result = $this->select($query);
+        return $result;
+    }
     public function deleteOrder($order_id)
     {
         $order_id = mysqli_real_escape_string($this->link, $order_id);
