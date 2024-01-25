@@ -46,6 +46,15 @@ class OrderModel extends Database
         $result = $this->select($query);
         return $result;
     }
+    public function getOrdersByDate($date)
+    {
+        $query = "SELECT o.*, u.email
+                  FROM orders AS o
+                  JOIN users AS u ON o.user_id = u.id
+                  WHERE DATE(o.created_at) = '$date'";
+        $result = $this->select($query);
+        return $result;
+    }
     public function getOrderById($id)
     {
         $query = "SELECT o.*, u.id AS user_id , u.email  
@@ -80,5 +89,12 @@ class OrderModel extends Database
         } else {
             return false; // Xóa thất bại
         }
+    }
+    public function getAllOrderDates()
+    {
+        $query = "SELECT DISTINCT DATE(created_at) AS order_date
+                  FROM orders";
+        $result = $this->select($query);
+        return $result;
     }
 }

@@ -7,8 +7,20 @@ class AdminController extends Controller
 
     public function get()
     {
+        $orders =  $this->model('order')->getOrders();
+        $dates =  $this->model('order')->getAllOrderDates();
+        return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates]);
+    }
+    public function getorderdate()
 
-        return $this->view('admin/index');
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // print_r($_POST['order_date']);
+
+            $orders =  $this->model('order')->getOrdersByDate($_POST['order_date']);
+            $dates =  $this->model('order')->getAllOrderDates();
+            return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates]);
+        }
     }
     public function products()
     {
