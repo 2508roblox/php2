@@ -1,5 +1,5 @@
 <?php 
-class RoleMiddleware
+class AdminMiddleware
 {
     public function handle()
     {

@@ -121,12 +121,12 @@ require_once __DIR__ . '/inc/footer.php';
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="input-group mb-0">
-                <form id="cate_form" action="<?php url('coupon/check_coupon') ?>" enctype="multipart/form-data" method="POST">
+                <form id="cate_form" action="<?php url('coupon/check_coupon') ?>"  method="POST">
 
                                     <input name="coupon" required="required" type="text" class="form-control" placeholder="Coupon Code">
 
                                     <div class="input-group-addon">
-                                        <button id="applyCouponBtn" name="submit" value="Submit" type="submit" class="btn coupon">
+                                        <button id="" name="submit" value="Submit" type="submit" class="btn coupon">
                                             Apply Coupon
                                         </button>
                                     </div>

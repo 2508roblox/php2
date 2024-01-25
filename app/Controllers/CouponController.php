@@ -15,6 +15,7 @@ class CouponController extends Controller
        redirect('cart');
 
     } else {
+        
         // User has an unrecognized role, handle accordingly (e.g., display an error or deny access)
         // Redirect to an appropriate page or display an error message
         redirect('cart');
