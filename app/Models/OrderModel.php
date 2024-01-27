@@ -112,4 +112,17 @@ class OrderModel extends Database
         $result = $this->select($query);
         return $result;
     }
+    public function updateOrderStatus($id)
+    {
+        $id = mysqli_real_escape_string($this->link, $id);
+
+        $sql = "UPDATE orders SET status = 'success' WHERE id = '$id'";
+        $result = $this->update($sql);
+
+        if ($result) {
+            return true; // Update successful
+        } else {
+            return false; // Update failed
+        }
+    }
 }
