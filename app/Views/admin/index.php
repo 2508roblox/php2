@@ -245,7 +245,12 @@ require_once __DIR__ . '/inc/header.php';
             </div>
             <div class="col-12 col-lg-8 col-xxl-9 d-flex">
                 <div class="card flex-grow-1 saw-chart"
-                    data-sa-data="[{&quot;label&quot;:&quot;Jan&quot;,&quot;value&quot;:50},{&quot;label&quot;:&quot;Feb&quot;,&quot;value&quot;:130},{&quot;label&quot;:&quot;Mar&quot;,&quot;value&quot;:525},{&quot;label&quot;:&quot;Apr&quot;,&quot;value&quot;:285},{&quot;label&quot;:&quot;May&quot;,&quot;value&quot;:470},{&quot;label&quot;:&quot;Jun&quot;,&quot;value&quot;:130},{&quot;label&quot;:&quot;Jul&quot;,&quot;value&quot;:285},{&quot;label&quot;:&quot;Aug&quot;,&quot;value&quot;:240},{&quot;label&quot;:&quot;Sep&quot;,&quot;value&quot;:710},{&quot;label&quot;:&quot;Oct&quot;,&quot;value&quot;:470},{&quot;label&quot;:&quot;Nov&quot;,&quot;value&quot;:640},{&quot;label&quot;:&quot;Dec&quot;,&quot;value&quot;:1110}]">
+                    data-sa-data="[{&quot;label&quot;:&quot;Jan&quot;,&quot;value&quot;:<?php echo $data['statistic']['01'] ?>},{&quot;label&quot;:&quot;Feb&quot;,&quot;value&quot;:<?php echo $data['statistic']['02'] ?? 0 ?>},{&quot;label&quot;:&quot;Mar&quot;,&quot;value&quot;:<?php echo $data['statistic']['03'] ?? 0 ?>},{&quot;label&quot;:&quot;Apr&quot;,&quot;value&quot;:<?php echo $data['statistic']['04'] ?? 0 ?>},{&quot;label&quot;:&quot;May&quot;,&quot;value&quot;:<?php echo $data['statistic']['05'] ?? 0 ?>},{&quot;label&quot;:&quot;Jun&quot;,&quot;value&quot;:<?php echo $data['statistic']['06'] ?? 0 ?>},{&quot;label&quot;:&quot;Jul&quot;,&quot;value&quot;:<?php echo $data['statistic']['07'] ?? 0 ?>}
+                    ,{&quot;label&quot;:&quot;Aug&quot;,&quot;value&quot;:<?php echo $data['statistic']['08'] ?? 0 ?>}
+                    ,{&quot;label&quot;:&quot;Sep&quot;,&quot;value&quot;:<?php echo $data['statistic']['09'] ?? 0 ?>}
+                    ,{&quot;label&quot;:&quot;Oct&quot;,&quot;value&quot;:<?php echo $data['statistic']['10'] ?? 0 ?>}
+                    ,{&quot;label&quot;:&quot;Nov&quot;,&quot;value&quot;:<?php echo $data['statistic']['11'] ?? 0 ?>}
+                    ,{&quot;label&quot;:&quot;Dec&quot;,&quot;value&quot;:<?php echo $data['statistic']['12'] ?? 0 ?>}]">
                     <div class="sa-widget-header saw-chart__header">
                         <h2 class="sa-widget-header__title">Income statistics</h2>
                         <div class="sa-widget-header__actions">

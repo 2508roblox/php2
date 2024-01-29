@@ -9,7 +9,8 @@ class AdminController extends Controller
     {
         $orders =  $this->model('order')->getOrders();
         $dates =  $this->model('order')->getAllOrderDates();
-        return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates]);
+        $statistic =  $this->model('order')->getStatistic();
+        return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates, 'statistic' => $statistic]);
     }
     public function getorderdate()
 
@@ -19,10 +20,10 @@ class AdminController extends Controller
             if ($_POST['order_date'] == 'all') {
                 redirect('admin');
             }
-
+            $statistic =  $this->model('order')->getStatistic();
             $orders =  $this->model('order')->getOrdersByDate($_POST['order_date']);
             $dates =  $this->model('order')->getAllOrderDates();
-            return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates, 'selected' => $_POST['order_date']]);
+            return $this->view('admin/index', ['orders' => $orders, 'dates' => $dates, 'selected' => $_POST['order_date'], 'statistic' => $statistic]);
         }
     }
     public function products()

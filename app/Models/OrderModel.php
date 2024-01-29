@@ -112,6 +112,27 @@ class OrderModel extends Database
         $result = $this->select($query);
         return $result;
     }
+    public function getStatistic()
+    {
+        $query = "SELECT
+        DATE_FORMAT(created_at, '%m') AS month,
+        COALESCE(SUM(total_amount), 0) AS total_amount
+    FROM
+        orders
+    GROUP BY
+        DATE_FORMAT(created_at, '%Y-%m')";
+    
+    $result = $this->select($query);
+    $data = [];
+    
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $data[$row['month']] = $row['total_amount'];
+        }
+    }
+    
+    return $data;
+    }
     public function updateOrderStatus($id)
     {
         $id = mysqli_real_escape_string($this->link, $id);
