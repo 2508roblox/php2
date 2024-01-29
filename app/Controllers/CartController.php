@@ -20,6 +20,7 @@ class CartController extends Controller
     }
     public function add()
     {
+        print_r($_POST);
         AuthMiddleware::handle();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // dd($_POST);

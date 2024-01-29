@@ -8,8 +8,7 @@ require_once __DIR__ . '/inc/footer.php';
 
 <!-- Header End -->
 <?php foreach ($data['productDetails'] as $productDetail) : ?>
-
-
+  
     <div class="page-content">
 
         <div class="d-sm-flex justify-content-between container-fluid py-3">
@@ -130,16 +129,18 @@ require_once __DIR__ . '/inc/footer.php';
                                                         <del> <?php Format::currency( $productDetail['price'])?>   </del></span>
                                                 </div>
                                                 <div class="btn-quantity quantity-sm light d-xl-none d-blcok d-sm-block">
-                                                    <label class="form-label">Quantity</label>
-                                                    <input type="text" value="1" name="demo_vertical2">
+                                               
+                                                    <label class="form-label">Quantity: </label>
+                                                    <input type="number" value="1" name="demo_vertical2" max="<?php echo $productDetail['quantity']?>">
                                                 </div>
                                             </div>
                                             <input type="text" value="<?php echo $productDetail['id'] ?>" hidden name="product_id">
+                                            <input type="number" value="<?php echo $productDetail['quantity']?>" hidden name="max_quantity">
 
                                             <div class="product-num">
                                                 <div class="btn-quantity light d-xl-block d-sm-none d-none">
-                                                    <label class="form-label">Quantity</label>
-                                                    <input type="text" value="1" name="demo_vertical2">
+                                                    <label class="form-label">Quantity: <?php echo $productDetail['quantity']?></label>
+                                                    <input type="number" value="1" max="<?php echo $productDetail['quantity']?>" name="demo_vertical2">
                                                 </div>
 
 

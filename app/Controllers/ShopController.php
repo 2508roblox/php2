@@ -18,7 +18,7 @@ class ShopController extends Controller
             $_SESSION['wishlists'] = $wishlists;
             $_SESSION['wishlistsCount'] = $wishlists->num_rows ?? 0;
         }
-
+        
         return $this->view('frontend/shop', ['products' => $products, 'cattegories' => $cattegories]);
     }
     public function search()
