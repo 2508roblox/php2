@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3309
--- Thời gian đã tạo: Th1 26, 2024 lúc 10:59 AM
+-- Thời gian đã tạo: Th1 29, 2024 lúc 10:14 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -165,11 +165,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `firstname`, `lastname`, `address`, `city`, `phone`, `status`, `payment_mode`, `created_at`, `updated_at`, `shipping_price`, `user_id`, `total_amount`, `discount`) VALUES
-(21, '123', '123123', '123123', '202', '0337799453', 'pending', 'momo', '2024-01-19 16:13:09', '2024-01-19 16:13:09', 31900.00, 3, 32000.00, 0.00),
-(22, '123', '123123', '123123', '215', '0337799453', 'pending', 'vietinbank', '2024-01-25 08:52:49', '2024-01-25 08:52:49', 38501.00, 7, 38601.00, 0.00),
-(23, '123', '123123', '123123', '219', '0337799453', 'pending', 'vietinbank', '2024-01-19 16:37:35', '2024-01-19 16:37:35', 38501.00, 3, 38601.00, 0.00),
-(27, '123', '123123', '123123', '238', '0337799453', 'pending', 'cash', '2024-01-25 09:37:58', '2024-01-25 09:37:58', 90201.00, 3, 110201.00, 0.00),
-(28, '123', '123123', '123123', '202', '0337799453', 'pending', 'cash', '2024-01-25 11:07:41', '2024-01-25 11:07:41', 31900.00, 3, -68000.00, 100000.00);
+(38, '123', '123123', '123123', '202', '0337799453', 'confirm', 'vnpay', '2024-01-29 15:28:30', '2024-01-29 15:28:30', 30800.00, 3, 30900.00, 0.00),
+(39, '123', '123123', '123123', '238', '0337799453', 'pending', 'cash', '2024-01-29 16:09:31', '2024-01-29 16:09:31', 91301.00, 3, 192201.00, 0.00),
+(40, '123', '123123', '123123', '202', '0337799453', 'pending', 'cash', '2024-01-29 16:12:30', '2024-01-29 16:12:30', 31900.00, 3, 1732070.00, 0.00),
+(41, '123123', '123123123', '123123', '202', '0337799453', 'pending', 'cash', '2024-01-29 16:12:45', '2024-01-29 16:12:45', 29700.00, 3, 1729870.00, 0.00),
+(42, '123123', '123123123', '123123', '202', '0337799453', 'pending', 'cash', '2024-01-29 16:13:41', '2024-01-29 16:13:41', 29700.00, 3, 1729870.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -209,7 +209,12 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (18, 26, 26, 6, 100, '2024-01-20 10:01:37', '2024-01-20 10:01:37'),
 (19, 27, 25, 100, 100, '2024-01-25 09:37:58', '2024-01-25 09:37:58'),
 (20, 27, 26, 100, 100, '2024-01-25 09:37:58', '2024-01-25 09:37:58'),
-(21, 28, 26, 1, 100, '2024-01-25 11:07:41', '2024-01-25 11:07:41');
+(21, 28, 26, 1, 100, '2024-01-25 11:07:41', '2024-01-25 11:07:41'),
+(22, 29, 25, 2, 100, '2024-01-27 17:15:36', '2024-01-27 17:15:36'),
+(23, 37, 25, 1, 100, '2024-01-27 17:44:56', '2024-01-27 17:44:56'),
+(24, 38, 25, 1, 100, '2024-01-27 17:53:29', '2024-01-27 17:53:29'),
+(25, 39, 27, 1, 100900, '2024-01-29 16:09:31', '2024-01-29 16:09:31'),
+(26, 42, 25, 17, 100010, '2024-01-29 16:13:41', '2024-01-29 16:13:41');
 
 -- --------------------------------------------------------
 
@@ -242,12 +247,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `small_description`, `description`, `price`, `category_id`, `promotion_price`, `quantity`, `feature`, `status`, `publish_date`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`, `slide`) VALUES
-(25, 'Brwwandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:17:32', '2024-01-19 16:17:32', 1),
-(26, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:16:05', '2024-01-19 16:16:05', 1),
-(27, 'Brwwandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:16:42', '2024-01-19 16:16:42', 1),
-(28, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:16:14', '2024-01-19 16:16:14', 1),
+(25, 'Brwwandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                                                                        \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1498997, 15, 100010, 1, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                                                                        \r\n                                          \r\n                                            ', '2024-01-29 16:13:41', '2024-01-29 16:13:41', 1),
+(26, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                                                                        \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 15012312, 15, 10012312, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                                                                        \r\n                                          \r\n                                            ', '2024-01-29 16:08:23', '2024-01-29 16:08:23', 1),
+(27, 'Brwwandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                                                                        \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499500, 15, 100900, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                                                                        \r\n                                          \r\n                                            ', '2024-01-29 16:09:05', '2024-01-29 16:09:05', 1),
+(28, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                                                                        \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499100, 15, 800000, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                                                                        \r\n                                          \r\n                                            ', '2024-01-29 16:08:36', '2024-01-29 16:08:36', 1),
 (29, 'Brwwandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:16:51', '2024-01-19 16:16:51', 1),
-(30, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:16:23', '2024-01-19 16:16:23', 1),
+(30, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                                                                        \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 149950, 15, 100500, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                                                                        \r\n                                          \r\n                                            ', '2024-01-29 16:08:49', '2024-01-29 16:08:49', 1),
 (31, 'Brwwandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:17:04', '2024-01-19 16:17:04', 1),
 (32, 'Brandix Screwdriver SCREW150', 'brandix-screwdriver-screw150', 'Short description                                            \r\n                                            ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 1499, 15, 100, 18, 1, 'scheduled', '01/15/2024', 'Short description', 'Short description                                            \r\n                                          \r\n                                            ', '2024-01-19 16:16:32', '2024-01-19 16:16:32', 1);
 
@@ -424,7 +429,7 @@ ALTER TABLE `bills`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -448,13 +453,13 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `products`

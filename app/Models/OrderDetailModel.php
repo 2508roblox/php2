@@ -23,8 +23,12 @@ class OrderdetailModel extends Database
             $quantity = $cart['quantity'];
             $price = $cart['promotion_price'];
 
+
             // Add the values to the list
             $values[] = "($orderId, $productId, $quantity, $price)";
+            // Giảm số lượng sản phẩm trong bảng "products"
+            $queryUpdateProduct = "UPDATE products SET quantity = quantity - $quantity WHERE id = $productId";
+            $this->update($queryUpdateProduct);
         }
 
         // Join the values with commas
