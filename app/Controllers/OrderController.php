@@ -7,6 +7,12 @@ class OrderController extends Controller
 
     public function get()
     {
+        if (isset($_GET['vnp_TransactionStatus']) && $_GET['vnp_TransactionStatus'] == '00') {
+            // dd($_GET['vnp_TransactionStatus']);
+            // dd($_GET['vnp_TxnRef']);
+            $this->model('order')->updateOrderStatus($_GET['vnp_TxnRef']);
+            redirect('order');
+        }
         $carts = $this->model('cart')->getAllCarts();
         $_SESSION['carts'] = $carts;
         $_SESSION['cartsCount'] = $carts->num_rows ?? 0;

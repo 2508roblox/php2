@@ -22,7 +22,7 @@ class HomeController extends Controller
 
 
         // $this->view('frontend/index', ['slides' => $slides, 'latestProducts' => $latestProducts]);
-        $this->view('frontend/index_new', ['slides' => $slides, 'latestProducts' => $latestProducts]);
+        $this->view('frontend/index', ['slides' => $slides, 'latestProducts' => $latestProducts]);
     }
     public function getProducts()
     {

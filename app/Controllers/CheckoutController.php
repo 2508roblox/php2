@@ -14,6 +14,12 @@ class CheckoutController extends Controller
             $this->model('order')->updateOrderStatus($_GET['vnp_TxnRef']);
             redirect('order');
         }
+        // if (isset($_GET['vnp_TransactionStatus']) && $_GET['vnp_TransactionStatus'] == '00') {
+        //     dd($_GET['vnp_TransactionStatus']);
+        //     dd($_GET['vnp_TxnRef']);
+        //     $this->model('order')->updateOrderStatus($_GET['vnp_TxnRef']);
+        //     redirect('order');
+        // }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $latestId = $this->model('order')->create_order($_POST);
             $result = $this->model('cart')->getAllCarts();
